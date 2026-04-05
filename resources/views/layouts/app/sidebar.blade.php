@@ -15,6 +15,12 @@
                     <flux:sidebar.item icon="home" :href="route('dashboard')" :current="request()->routeIs('dashboard')" wire:navigate>
                         {{ __('Dashboard') }}
                     </flux:sidebar.item>
+                    <flux:sidebar.item icon="users" :href="route('breeders')" :current="request()->routeIs('breeders')" wire:navigate>
+                        {{ __('Éleveurs') }}
+                    </flux:sidebar.item>
+                    <flux:sidebar.item icon="user" :href="route('users')" :current="request()->routeIs('users')" wire:navigate>
+                        {{ __('Utilisateurs') }}
+                    </flux:sidebar.item>
                 </flux:sidebar.group>
             </flux:sidebar.nav>
 
