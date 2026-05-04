@@ -2,6 +2,7 @@
 
 use App\Models\Breeder;
 use Barryvdh\DomPDF\Facade\Pdf;
+use Carbon\Carbon;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use Livewire\WithPagination;
@@ -14,7 +15,7 @@ new class extends Component
     public $showCreateModal = false;
     public $showEditModal = false;
     public $editingBreeder = null;
-    public $first_name, $last_name, $email, $date_of_birth, $place_of_birth, $contact, $neighborhood, $borough, $city, $geographic_location, $breeder_number, $date_of_membership, $date_of_registration, $organization, $id_photo;
+    public $first_name, $last_name, $email, $date_of_birth, $place_of_birth, $contact, $neighborhood, $borough, $city, $geographic_location, $breeder_number, $date_of_membership, $date_of_registration, $organization, $id_photo, $signature_photo, $id_issued_date, $id_expiration_date;
 
     public function mount()
     {
@@ -44,11 +45,27 @@ new class extends Component
             'date_of_registration' => 'nullable|date',
             'organization' => 'nullable|string|max:255',
             'id_photo' => 'nullable|image|max:2048',
+            'signature_photo' => 'nullable|image|max:2048',
+            'id_issued_date' => 'nullable|date',
+            'id_expiration_date' => 'nullable|date',
         ]);
 
         $photoPath = null;
         if ($this->id_photo) {
             $photoPath = $this->id_photo->store('id_photos', 'public');
+        }
+
+        $signaturePhotoPath = null;
+        if ($this->signature_photo) {
+            $signaturePhotoPath = $this->signature_photo->store('signature_photos', 'public');
+        }
+
+        if (! $this->id_issued_date) {
+            $this->id_issued_date = Carbon::today()->toDateString();
+        }
+
+        if (! $this->id_expiration_date) {
+            $this->id_expiration_date = Carbon::parse($this->id_issued_date)->addYears(5)->toDateString();
         }
 
         Breeder::create([
@@ -67,6 +84,9 @@ new class extends Component
             'date_of_registration' => $this->date_of_registration,
             'organization' => $this->organization,
             'id_photo' => $photoPath,
+            'signature_photo' => $signaturePhotoPath,
+            'id_issued_date' => $this->id_issued_date,
+            'id_expiration_date' => $this->id_expiration_date,
         ]);
 
         $this->resetForm();
@@ -92,7 +112,10 @@ new class extends Component
         $this->date_of_membership = $breeder->date_of_membership;
         $this->date_of_registration = $breeder->date_of_registration;
         $this->organization = $breeder->organization;
+        $this->id_issued_date = $breeder->id_issued_date;
+        $this->id_expiration_date = $breeder->id_expiration_date;
         $this->id_photo = null; // Reset file input
+        $this->signature_photo = null; // Reset file input
         $this->showEditModal = true;
     }
 
@@ -114,11 +137,23 @@ new class extends Component
             'date_of_registration' => 'nullable|date',
             'organization' => 'nullable|string|max:255',
             'id_photo' => 'nullable|image|max:2048',
+            'signature_photo' => 'nullable|image|max:2048',
+            'id_issued_date' => 'nullable|date',
+            'id_expiration_date' => 'nullable|date',
         ]);
 
         $photoPath = $this->editingBreeder->id_photo;
         if ($this->id_photo) {
             $photoPath = $this->id_photo->store('id_photos', 'public');
+        }
+
+        $signaturePhotoPath = $this->editingBreeder->signature_photo;
+        if ($this->signature_photo) {
+            $signaturePhotoPath = $this->signature_photo->store('signature_photos', 'public');
+        }
+
+        if ($this->id_issued_date && ! $this->id_expiration_date) {
+            $this->id_expiration_date = Carbon::parse($this->id_issued_date)->addYears(5)->toDateString();
         }
 
         $this->editingBreeder->update([
@@ -137,6 +172,9 @@ new class extends Component
             'date_of_registration' => $this->date_of_registration,
             'organization' => $this->organization,
             'id_photo' => $photoPath,
+            'signature_photo' => $signaturePhotoPath,
+            'id_issued_date' => $this->id_issued_date,
+            'id_expiration_date' => $this->id_expiration_date,
         ]);
 
         $this->resetForm();
@@ -148,6 +186,19 @@ new class extends Component
     {
         Breeder::findOrFail($id)->delete();
         session()->flash('message', 'Éleveur supprimé avec succès.');
+    }
+
+    public function renew($id)
+    {
+        $breeder = Breeder::findOrFail($id);
+        $issuedDate = Carbon::today();
+
+        $breeder->update([
+            'id_issued_date' => $issuedDate,
+            'id_expiration_date' => $issuedDate->copy()->addYears(5),
+        ]);
+
+        session()->flash('message', 'Dates de carte renouvelées avec succès.');
     }
 
     public function downloadPdf($id)
@@ -176,6 +227,9 @@ new class extends Component
         $this->date_of_registration = '';
         $this->organization = '';
         $this->id_photo = null;
+        $this->signature_photo = null;
+        $this->id_issued_date = '';
+        $this->id_expiration_date = '';
         $this->editingBreeder = null;
     }
 };
@@ -204,6 +258,8 @@ new class extends Component
         <flux:table.column>Email</flux:table.column>
         <flux:table.column>Contact</flux:table.column>
         <flux:table.column>Numéro Éleveur</flux:table.column>
+        <flux:table.column>Délivrance</flux:table.column>
+        <flux:table.column>Expiration</flux:table.column>
         <flux:table.column>Actions</flux:table.column>
     </flux:table.columns>
 
@@ -214,9 +270,12 @@ new class extends Component
             <flux:table.cell>{{ $breeder->email }}</flux:table.cell>
             <flux:table.cell>{{ $breeder->contact }}</flux:table.cell>
             <flux:table.cell>{{ $breeder->breeder_number }}</flux:table.cell>
+            <flux:table.cell>{{ $breeder->id_issued_date?->format('d/m/Y') ?? '—' }}</flux:table.cell>
+            <flux:table.cell>{{ $breeder->id_expiration_date?->format('d/m/Y') ?? '—' }}</flux:table.cell>
             <flux:table.cell>
-                <div class="flex gap-2">
+                <div class="flex gap-2 flex-wrap">
                     <flux:button variant="ghost" size="sm" wire:click="edit({{ $breeder->id }})">Éditer</flux:button>
+                    <flux:button variant="ghost" size="sm" wire:click="renew({{ $breeder->id }})">Renouveler</flux:button>
                     <flux:button variant="ghost" size="sm" wire:click="downloadPdf({{ $breeder->id }})">PDF</flux:button>
                     <flux:button variant="danger" size="sm" wire:click="delete({{ $breeder->id }})">Supprimer</flux:button>
                 </div>
@@ -291,6 +350,18 @@ new class extends Component
                 <flux:label>Photo ID</flux:label>
                 <flux:input type="file" wire:model="id_photo" />
             </flux:field>
+            <flux:field>
+                <flux:label>Photo Signature</flux:label>
+                <flux:input type="file" wire:model="signature_photo" />
+            </flux:field>
+            <flux:field>
+                <flux:label>Date de Délivrance</flux:label>
+                <flux:input type="date" wire:model="id_issued_date" />
+            </flux:field>
+            <flux:field>
+                <flux:label>Date d'Expiration</flux:label>
+                <flux:input type="date" wire:model="id_expiration_date" />
+            </flux:field>
         </div>
         <flux:footer>
             <flux:spacer />
@@ -362,6 +433,18 @@ new class extends Component
             <flux:field>
                 <flux:label>Photo ID</flux:label>
                 <flux:input type="file" wire:model="id_photo" />
+            </flux:field>
+            <flux:field>
+                <flux:label>Photo Signature</flux:label>
+                <flux:input type="file" wire:model="signature_photo" />
+            </flux:field>
+            <flux:field>
+                <flux:label>Date de Délivrance</flux:label>
+                <flux:input type="date" wire:model="id_issued_date" />
+            </flux:field>
+            <flux:field>
+                <flux:label>Date d'Expiration</flux:label>
+                <flux:input type="date" wire:model="id_expiration_date" />
             </flux:field>
         </div>
         <flux:footer>
