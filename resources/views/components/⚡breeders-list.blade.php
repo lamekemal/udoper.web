@@ -6,6 +6,8 @@ use Carbon\Carbon;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use Livewire\WithPagination;
+use Spatie\Browsershot\Browsershot;
+use Barryvdh\Snappy\Facades\SnappyPdf;
 
 new class extends Component
 {
@@ -201,15 +203,38 @@ new class extends Component
         session()->flash('message', 'Dates de carte renouvelées avec succès.');
     }
 
-    public function downloadPdf($id)
+    /*public function downloadPdf($id)
     {
         $breeder = Breeder::findOrFail($id);
         $pdf = \Barryvdh\DomPDF\Facade\Pdf::loadView('breeder-card', compact('breeder'));
         return response()->streamDownload(function () use ($pdf) {
             echo $pdf->output();
         }, 'carte-membre-' . $breeder->membership_number . '.pdf');
-    }
+    }*/
+public function downloadPdf($id)
+{
+    $breeder = Breeder::findOrFail($id);
+    $html = view('breeder-card', compact('breeder'))->render();
 
+    $pdf = Browsershot::html($html)
+        ->setTemporaryDirectory(storage_path('app/browsershot'))
+        ->noSandbox() 
+            // --- Options cruciales pour les dimensions ---
+        ->paperSize(380, 680, 'px') // Attention : Browsershot utilise (hauteur, largeur) ou inversement selon la version, vérifiez l'ordre.
+        ->margins(0, 0, 0, 0)       // Force toutes les marges à zéro
+        ->preferCSSPageSize()       // Force l'utilisation de @page size dans le CSS
+        ->hideHeaderAndFooter()     // Supprime les zones blanches d'en-tête/pied
+        ->addChromiumArguments([
+            '--disable-setuid-sandbox',
+            '--disable-extensions',
+            '--disable-dev-shm-usage' // Helps with memory issues in Docker/Linux
+        ])
+        ->pdf();
+
+    return response()->streamDownload(function () use ($pdf) {
+        echo $pdf;
+    }, 'carte-membre-' . $breeder->membership_number . '.pdf');
+}
     private function resetForm()
     {
         $this->first_name = '';
@@ -277,6 +302,7 @@ new class extends Component
                     <flux:button variant="ghost" size="sm" wire:click="edit({{ $breeder->id }})">Éditer</flux:button>
                     <flux:button variant="ghost" size="sm" wire:click="renew({{ $breeder->id }})">Renouveler</flux:button>
                     <flux:button variant="ghost" size="sm" wire:click="downloadPdf({{ $breeder->id }})">PDF</flux:button>
+                    <a href="{{ route('breeders.preview-html', $breeder) }}" target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded border border-slate-300 bg-white px-3 py-1 text-sm text-slate-700 hover:bg-slate-50">Voir</a>
                     <flux:button variant="danger" size="sm" wire:click="delete({{ $breeder->id }})">Supprimer</flux:button>
                 </div>
             </flux:table.cell>
