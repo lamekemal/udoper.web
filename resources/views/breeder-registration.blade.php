@@ -121,7 +121,7 @@
                                 </div>
                                 @endif
 
-                                <form method="POST" action="{{ route('breeders.store') }}">
+                                <form method="POST" action="{{ route('breeders.store') }}" enctype="multipart/form-data">
                                     @csrf
 
                                     <div class="row gy-3">
