@@ -24,6 +24,12 @@
                     <flux:sidebar.item icon="document-text" :href="route('owners')" :current="request()->routeIs('owners')" wire:navigate>
                         {{ __('Signataires') }}
                     </flux:sidebar.item>
+                    <flux:sidebar.item icon="document-text" :href="route('gaps')" :current="request()->routeIs('gaps')" wire:navigate>
+                        {{ __('Gestion des A/P.S') }}
+                    </flux:sidebar.item>
+                    <flux:sidebar.item icon="document-text" :href="route('subscriptions')" :current="request()->routeIs('subscriptions')" wire:navigate>
+                        {{ __('Gestion des Cotisations') }}
+                    </flux:sidebar.item>
                 </flux:sidebar.group>
             </flux:sidebar.nav>
 

@@ -410,7 +410,7 @@
         </div-->
         <div class="card-header-container">
             <!-- Logo Gauche -->
-            <img src="{{ $previewHtml ? asset('assets/logo-udoper-ad.png') : public_path('assets/logo-udoper-ad.png') }}"
+            <img src="{{ $previewHtml ? asset('assets/logoa.jpg') : public_path('assets/logoa.jpg') }}"
              alt="Logo Gauche" class="card-logo">
 
             <!-- Bloc Titre Central -->
@@ -422,7 +422,7 @@
             </div>
 
             <!-- Logo Droite -->
-            <img src="{{ $previewHtml ? asset('assets/logoa.jpg') : public_path('assets/logoa.jpg') }}"
+            <img src="{{ $previewHtml ? asset('assets/logo-udoper-ad.png') : public_path('assets/logo-udoper-ad.png') }}"
              alt="Logo Droite" class="card-logo">
         </div>
 
@@ -549,7 +549,7 @@
         <!-- En-tête avec logos -->
         <div class="verso-header">
             <!-- Logo UDOPER -->
-            <img src="{{ $previewHtml ? asset('assets/logo-udoper-ad.png') : public_path('assets/logo-udoper-ad.png') }}"
+            <img src="{{ $previewHtml ? asset('assets/assets/logoa.jpg') : public_path('assets/logoa.jpg') }}"
                  class="verso-logo" alt="Logo UDOPER"
                  onerror="this.style.display='none'">
 
@@ -562,7 +562,7 @@
             </div>
 
             <!-- Armoiries du Bénin benin-coa.webp -->
-            <img src="{{ $previewHtml ? asset('assets/logoa.jpg') : public_path('assets/logoa.jpg') }}"
+            <img src="{{ $previewHtml ? asset('assets/logo-udoper-ad.png') : public_path('assets/logo-udoper-ad.png') }}"
                  class="verso-coa" alt="Armoiries Bénin"
                  onerror="this.style.display='none'">
         </div>

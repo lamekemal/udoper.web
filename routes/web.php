@@ -9,6 +9,8 @@ Route::view('/contact', 'contact')->name('contact');
 Route::get('/eleveur/ajouter', [BreederRegistrationController::class, 'create'])->name('breeders.create');
 Route::post('/eleveur/ajouter', [BreederRegistrationController::class, 'store'])->name('breeders.store');
 Route::view('/owners', 'owners')->name('owners');
+Route::view('/subscriptions', 'subscriptions')->name('subscriptions');
+Route::view('/gaps', 'gaps')->name('gaps');
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::view('dashboard', 'dashboard')->name('dashboard');
