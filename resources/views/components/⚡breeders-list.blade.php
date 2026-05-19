@@ -211,30 +211,49 @@ new class extends Component
             echo $pdf->output();
         }, 'carte-membre-' . $breeder->membership_number . '.pdf');
     }*/
-public function downloadPdf($id)
-{
-    $breeder = Breeder::findOrFail($id);
-    $html = view('breeder-card', compact('breeder'))->render();
+    /*public function downloadPdf($id)
+    {
+        $breeder = Breeder::findOrFail($id);
+        $html = view('breeder-card', compact('breeder'))->render();
 
-    $pdf = Browsershot::html($html)
-        ->setTemporaryDirectory(storage_path('app/browsershot'))
-        ->noSandbox() 
-            // --- Options cruciales pour les dimensions ---
-        ->paperSize(380, 680, 'px') // Attention : Browsershot utilise (hauteur, largeur) ou inversement selon la version, vérifiez l'ordre.
-        ->margins(0, 0, 0, 0)       // Force toutes les marges à zéro
-        ->preferCSSPageSize()       // Force l'utilisation de @page size dans le CSS
-        ->hideHeaderAndFooter()     // Supprime les zones blanches d'en-tête/pied
-        ->addChromiumArguments([
-            '--disable-setuid-sandbox',
-            '--disable-extensions',
-            '--disable-dev-shm-usage' // Helps with memory issues in Docker/Linux
-        ])
-        ->pdf();
+        $pdf = Browsershot::html($html)
+            ->setTemporaryDirectory(storage_path('app/browsershot'))
+            ->noSandbox()
+                // --- Options cruciales pour les dimensions ---
+            ->paperSize(380, 680, 'px') // Attention : Browsershot utilise (hauteur, largeur) ou inversement selon la version, vérifiez l'ordre.
+            ->margins(0, 0, 0, 0)       // Force toutes les marges à zéro
+            ->preferCSSPageSize()       // Force l'utilisation de @page size dans le CSS
+            ->hideHeaderAndFooter()     // Supprime les zones blanches d'en-tête/pied
+            ->addChromiumArguments([
+                '--disable-setuid-sandbox',
+                '--disable-extensions',
+                '--disable-dev-shm-usage' // Helps with memory issues in Docker/Linux
+            ])
+            ->pdf();
 
-    return response()->streamDownload(function () use ($pdf) {
-        echo $pdf;
-    }, 'carte-membre-' . $breeder->membership_number . '.pdf');
-}
+        return response()->streamDownload(function () use ($pdf) {
+            echo $pdf;
+        }, 'carte-membre-' . $breeder->membership_number . '.pdf');
+    }*/
+    public function downloadPdf($id)
+    {
+        $breeder = Breeder::findOrFail($id);
+        $html = view('breeder-card', compact('breeder'))->render();
+
+        $pdf = Browsershot::html($html)
+            ->setChromePath('/usr/bin/chromium')
+            ->noSandbox()
+            ->paperSize(380, 680, 'px') // Attention : Browsershot utilise (hauteur, largeur) ou inversement selon la version, vérifiez l'ordre.
+            ->margins(0, 0, 0, 0)       // Force toutes les marges à zéro
+            ->preferCSSPageSize()       // Force l'utilisation de @page size dans le CSS
+            ->hideHeaderAndFooter()     // Supprime les zones blanches d'en-tête/pied
+            ->pdf();
+
+        return response()->streamDownload(function () use ($pdf) {
+            echo $pdf;
+        }, 'carte-membre-' . $breeder->membership_number . '.pdf');
+    }
+
     private function resetForm()
     {
         $this->first_name = '';
