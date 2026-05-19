@@ -133,8 +133,8 @@
         }
 
         .photo-box {
-            width: 90px;
-            height: 110px;
+            width: 135px;
+            height: 165px;
             border: 1.5px solid #888;
             background: #f0f0f0;
             overflow: hidden;
@@ -421,7 +421,7 @@
                     @endif
                 </div>
 
-                <div style="width:100%; display:flex; flex-direction:column; align-items:center; gap:6px;">
+                <div style="width:100%; display:flex; flex-direction:row; align-items:center; gap:6px;">
                     <!-- QR Code -->
                     <div class="qr-box">
                         <img src="{{ \App\Helpers\QrCodeHelper::generateBreederQrCode($breeder) }}" alt="QR Code">
