@@ -18,14 +18,11 @@ new class extends Component
     public $showEditModal = false;
     public $editingBreeder = null;
     public $first_name, $last_name, $email, $date_of_birth, $place_of_birth, $contact, $neighborhood, $borough, $city, $geographic_location, $breeder_number, $date_of_membership, $date_of_registration, $organization, $id_photo, $signature_photo, $id_issued_date, $id_expiration_date, $gender, $marital_status, $department;
-    // 1. Declare it as a public property
-    public $randomString;
 
     public function mount()
     {
         // Initialiser si nécessaire
-        // 2. Initialize it when the component loads
-        $this->randomString = Str::random(10);
+        // 2. Initialize it when the component
     }
 
     public function updatedSearch()
@@ -225,6 +222,7 @@ new class extends Component
     {
         $breeder = Breeder::findOrFail($id);
         $html = view('breeder-card', compact('breeder'))->render();
+        $timestamp = now()->format('Ymd-His');
 
         $pdf = Browsershot::html($html)
             ->setChromePath('/usr/bin/chromium')
@@ -234,10 +232,10 @@ new class extends Component
             ->preferCSSPageSize()
             ->hideHeaderAndFooter()
             ->pdf();
-        $timestamp = now()->format('Ymd-His');
+
         return response()->streamDownload(function () use ($pdf) {
             echo $pdf;
-        }, 'carte-membre-' . $breeder->breeder_number. '-' . $timestamp . '.pdf');
+        }, 'carte-membre - ' . $timestamp . '.pdf');
     }
 
     public function openCreateModal(): void
