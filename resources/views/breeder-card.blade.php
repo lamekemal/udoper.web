@@ -421,23 +421,26 @@
                     @endif
                 </div>
 
-                <!-- QR Code -->
-                <div class="qr-box">
-                    <img src="{{ \App\Helpers\QrCodeHelper::generateBreederQrCode($breeder) }}" alt="QR Code">
-                </div>
+                <div style="width:100%; display:flex; flex-direction:column; align-items:center; gap:6px;">
+                    <!-- QR Code -->
+                    <div class="qr-box">
+                        <img src="{{ \App\Helpers\QrCodeHelper::generateBreederQrCode($breeder) }}" alt="QR Code">
+                    </div>
 
 
-                <!-- signature -->
-                <div class="sign-box">
-                     <span style="font-size: 8.5pt; font-align: center; ">Signature</span>
-                                       @if($breeder->signature_photo)
-                        <div class="signature-photo">
-                            <img src="{{ $previewHtml ? asset('storage/' . $breeder->signature_photo) : public_path('storage/' . $breeder->signature_photo) }}" alt="Signature">
-                        </div>
-                    @else
-                        <div class="signature-photo"></div>
-                    @endif
+                    <!-- signature -->
+                    <div class="sign-b  ox">
+                        <span style="font-size: 8.5pt; font-align: center; ">Signature</span>
+                                        @if($breeder->signature_photo)
+                            <div class="signature-photo">
+                                <img src="{{ $previewHtml ? asset('storage/' . $breeder->signature_photo) : public_path('storage/' . $breeder->signature_photo) }}" alt="Signature">
+                            </div>
+                        @else
+                            <div class="signature-photo"></div>
+                        @endif
+                    </div>
                 </div>
+
             </div>
         </div>
 
