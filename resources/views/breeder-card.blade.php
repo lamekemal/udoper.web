@@ -496,6 +496,8 @@
                     <div class="stamp-area">
                         @if(isset($issuer_signature_path) && $issuer_signature_path)
                             <img src="{{ $previewHtml ? asset('storage/' . $issuer_signature_path) : public_path('storage/' . $issuer_signature_path) }}" alt="Cachet et Signature">
+                        @else
+                         <img src="{{ $previewHtml ? asset('assets/signed.jpeg') : public_path('assets/signed.jpeg') }}" alt="Cachet et Signature">
                         @endif
                     </div>
                     <div class="president-name">Aboubakar ALFA TIDJANI</div>
