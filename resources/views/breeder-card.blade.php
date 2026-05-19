@@ -500,10 +500,10 @@
 
             <!-- Nom de l'organisation -->
             <div class="verso-org-name">
-                <p style="font-size: 7pt; color: rgb(56, 54, 54);">ASSOCIATION NATIONALE DES ORGANISATIONS PROFESSIONNELLES <br>D'ELEVEURS DE RUMINANTS DU BENIN</p>
-                <h1>ANOPER - BENIN</h1>
-                <p style="font-size: 7pt; color: rgb(56, 54, 54);">UNION DEPARTEMENTALE DES ORGANISATIONS PROFESSIONNELLES <br>D'ELEVEURS DE RUMINANTS DU BENIN</p>
-                <h1> UDOPER ATACORA-DONGA </h1>
+                <p style="font-size: 7pt; color: rgb(56, 54, 54);"><span style="color: #086D39;">A</span>SSOCIATION <span style="color: #086D39;">N</span>ATIONALE DES <span style="color: #086D39;">O</span>RGANISATIONS <span style="color: #086D39;">P</span>ROFESSIONNELLES <br>D'<span style="color: #086D39;">E</span>LEVEURS DE <span style="color: #086D39;">R</span>UMINANTS DU BENIN</span></p>
+                <h1  style="color: #086D39;">ANOPER - BENIN</h1>
+                <p style="font-size: 7pt; color: rgb(56, 54, 54);"><span style="color: #086D39;">U</span>NION <span style="color: #086D39;">D</span>EPARTEMENTALE DES <span style="color: #086D39;">O</span>RGANISATIONS <span style="color: #086D39;">P</span>ROFESSIONNELLES <br>D'<span style="color: #086D39;">E</span>LEVEURS DE <span style="color: #086D39;">R</span>UMINANTS DU BENIN</p>
+                <h1  style="color: #086D39;"> UDOPER ATACORA-DONGA </h1>
             </div>
 
             <!-- Armoiries du Bénin -->
