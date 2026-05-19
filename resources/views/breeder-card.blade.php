@@ -84,8 +84,8 @@
 
         /* Style unique pour les deux logos */
         .card-logo {
-            width: 90px;
-            height: 90px;
+            width: 70px;
+            height: 70px;
             object-fit: contain;      /* Évite de déformer vos logos s'ils ne sont pas parfaitement carrés */
         }
 
