@@ -22,7 +22,21 @@
             -webkit-print-color-adjust: exact;
             color: #000;
         }
+        /* Style de la signature */
+        .signature-photo {
+            width: 30mm;   /* Largeur ajustable */
+            height: 15mm;  /* Hauteur ajustable */
+            margin: 0 auto 2mm auto; /* Centre et ajoute de l'espace avec les dates */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
 
+        .signature-photo img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain; /* Garde les proportions de la signature */
+        }
         /* ══════════════════ RECTO ══════════════════ */
         .card {
             width: 680px;
@@ -327,7 +341,7 @@
     <div class="card">
 
         <div class="card-title">CARTE DE MEMBRE DE L'ANOPER BENIN</div>
-
+        <br>
         <div class="card-body">
             <!-- Informations de l'éleveur -->
             <div class="info-table">
@@ -385,7 +399,11 @@
                     <span class="label">Date enr. :</span>
                     <span class="value">{{ $breeder->id_expiration_date ? \Carbon\Carbon::parse($breeder->id_expiration_date)->format('d/m/Y') : '—' }}</span>
                 </div>
-
+                <div class="info-row">
+                    <span class="label" style="color:#E8112D!important;">Délivrance et Expriration :</span>
+                      <span style="color:#E8112D!important;">Du {{ $breeder->id_issued_date ? \Carbon\Carbon::parse($breeder->id_issued_date)->format('d/m/Y') : '—' }}</span>
+                      <span style="color:#E8112D!important;">Au {{ $breeder->id_expiration_date ? \Carbon\Carbon::parse($breeder->id_expiration_date)->format('d/m/Y') : '—' }}</span>
+                </div>
             </div>
 
             <!-- Photo + QR Code -->
@@ -400,6 +418,19 @@
                 <!-- QR Code -->
                 <div class="qr-box">
                     <img src="{{ \App\Helpers\QrCodeHelper::generateBreederQrCode($breeder) }}" alt="QR Code">
+                </div>
+
+
+                <!-- signature -->
+                <div class="sign-box">
+                     <span class="label">Signature</span>
+                                       @if($breeder->signature_photo)
+                        <div class="signature-photo">
+                            <img src="{{ $previewHtml ? asset('storage/' . $breeder->signature_photo) : public_path('storage/' . $breeder->signature_photo) }}" alt="Signature">
+                        </div>
+                    @else
+                        <div class="signature-photo"></div>
+                    @endif
                 </div>
             </div>
         </div>
@@ -422,9 +453,9 @@
 
         <!-- En-tête avec logos -->
         <div class="verso-header">
-            <!-- Logo ANOPER -->
-            <img src="{{ $previewHtml ? asset('assets/logo-anoper.png') : public_path('assets/logo-anoper.png') }}"
-                 class="verso-logo" alt="Logo ANOPER"
+            <!-- Logo UDOPER -->
+            <img src="{{ $previewHtml ? asset('assets/logo-udoper-ad.png') : public_path('assets/logo-udoper-ad.png') }}"
+                 class="verso-logo" alt="Logo UDOPER"
                  onerror="this.style.display='none'">
 
             <!-- Nom de l'organisation -->
