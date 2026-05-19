@@ -500,9 +500,9 @@
 
             <!-- Nom de l'organisation -->
             <div class="verso-org-name">
-                <p style="font-size: 7pt; color: rgb(56, 54, 54);"><span style="color: #086D39;">A</span>SSOCIATION <span style="color: #086D39;">N</span>ATIONALE DES <span style="color: #086D39;">O</span>RGANISATIONS <span style="color: #086D39;">P</span>ROFESSIONNELLES <br>D'<span style="color: #086D39;">E</span>LEVEURS DE <span style="color: #086D39;">R</span>UMINANTS DU BENIN</span></p>
+                <p style="font-size: 7pt; color: rgb(56, 54, 54);"><span style="color: #086D39; font-weight: bold;">A</span>SSOCIATION <span style="color: #086D39; font-weight: bold;">N</span>ATIONALE DES <span style="color: #086D39; font-weight: bold;">O</span>RGANISATIONS <span style="color: #086D39; font-weight: bold;">P</span>ROFESSIONNELLES <br>D'<span style="color: #086D39; font-weight: bold;">E</span>LEVEURS DE <span style="color: #086D39; font-weight: bold;">R</span>UMINANTS DU BENIN</span></p>
                 <h1  style="color: #086D39;">ANOPER - BENIN</h1>
-                <p style="font-size: 7pt; color: rgb(56, 54, 54);"><span style="color: #086D39;">U</span>NION <span style="color: #086D39;">D</span>EPARTEMENTALE DES <span style="color: #086D39;">O</span>RGANISATIONS <span style="color: #086D39;">P</span>ROFESSIONNELLES <br>D'<span style="color: #086D39;">E</span>LEVEURS DE <span style="color: #086D39;">R</span>UMINANTS DU BENIN</p>
+                <p style="font-size: 7pt; color: rgb(56, 54, 54);"><span style="color: #086D39; font-weight: bold;">U</span>NION <span style="color: #086D39; font-weight: bold;">D</span>EPARTEMENTALE DES <span style="color: #086D39; font-weight: bold;">O</span>RGANISATIONS <span style="color: #086D39; font-weight: bold;">P</span>ROFESSIONNELLES <br>D'<span style="color: #086D39; font-weight: bold;">E</span>LEVEURS DE <span style="color: #086D39; font-weight: bold;">R</span>UMINANTS DU BENIN</p>
                 <h1  style="color: #086D39;"> UDOPER ATACORA-DONGA </h1>
             </div>
 
