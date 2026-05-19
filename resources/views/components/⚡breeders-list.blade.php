@@ -132,8 +132,7 @@ new class extends Component
             'neighborhood' => 'nullable|string|max:255',
             'borough' => 'nullable|string|max:255',
             'city' => 'nullable|string|max:255',
-            'geographic_location' => 'nullable|string|max:255',//            'breeder_number' => 'required|string|unique:breeders,breeder_number,' . $this->editingBreeder->id,
-
+            'geographic_location' => 'nullable|string|max:255',
             'date_of_membership' => 'nullable|date',
             'date_of_registration' => 'nullable|date',
             'organization' => 'nullable|string|max:255',
@@ -295,7 +294,7 @@ new class extends Component
         // Régénérer le numéro à chaque reset (prêt pour la prochaine création)
         $this->breeder_number = Breeder::generateBreederNumber();
     }
- };
+};
 ?>
 
 @php
