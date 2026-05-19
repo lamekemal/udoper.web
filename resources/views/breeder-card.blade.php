@@ -77,7 +77,7 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 65%; /* Ajustez la taille du logo ici selon le rendu souhaité */
+            width: 75%; /* Ajustez la taille du logo ici selon le rendu souhaité */
             max-width: 250px;
             display: flex;
             justify-content: center;
