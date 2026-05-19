@@ -366,13 +366,30 @@
         <!-- Logo en filigrane au centre pour le fond -->
             <div class="card-background-logo">
                 <!-- Remplacez le chemin 'logo-anoper.png' par votre logique Blade si nécessaire -->
-                <img src="{{ asset('assets/11428881.png') }}" alt="Logo udoper Fond">
+                <img src="{{ asset('assets/beef.jpeg') }}" alt="Logo udoper Fond">
             </div>
-        <div class="card-title">CARTE DE MEMBRE ANOPER BENIN
+
+        <!--div class="card-title">CARTE DE MEMBRE ANOPER BENIN
             <p style="font-size: 9pt; margin-top:4px; color: rgb(8, 109, 57); text-decoration: none;">UDOPER ATACORA-DONGA</p>
 
-        </div>
+        </div-->
+        <div class="card-header-container">
+            <!-- Logo Gauche -->
+            <img src="{{ $previewHtml ? asset('assets/logo-udoper-ad.png') : public_path('assets/logo-udoper-ad.png') }}"
+             alt="Logo Gauche" class="card-logo">
 
+            <!-- Bloc Titre Central -->
+            <div class="card-title">
+                CARTE DE MEMBRE ANOPER BENIN
+                <p style="font-size: 9pt; margin-top:4px; color: rgb(8, 109, 57); text-decoration: none; font-weight: normal; font-style: normal;">
+                    UDOPER ATACORA-DONGA
+                </p>
+            </div>
+
+            <!-- Logo Droite -->
+            <img src="{{ $previewHtml ? asset('assets/logoa.jpg') : public_path('assets/logoa.jpg') }}"
+             alt="Logo Droite" class="card-logo">
+        </div>
 
         <div class="card-body">
             <!-- Informations de l'éleveur -->
@@ -492,7 +509,7 @@
     <div class="cardb">
                     <div class="card-background-logo">
                 <!-- Remplacez le chemin 'logo-anoper.png' par votre logique Blade si nécessaire -->
-                <img src="{{ asset('assets/fromage.jpg') }}" alt="Logo udoper Fond">
+                <img src="{{ asset('assets/fromx.jpeg') }}" alt="Logo udoper Fond">
             </div>
         <!-- En-tête avec logos -->
         <div class="verso-header">
@@ -503,14 +520,14 @@
 
             <!-- Nom de l'organisation -->
             <div class="verso-org-name">
-                <p style="font-size: 7pt; color: rgb(56, 54, 54);"><span style="color: #086D39; font-weight: bold;">A</span>SSOCIATION <span style="color: #086D39; font-weight: bold;">N</span>ATIONALE DES <span style="color: #086D39; font-weight: bold;">O</span>RGANISATIONS <span style="color: #086D39; font-weight: bold;">P</span>ROFESSIONNELLES <br>D'<span style="color: #086D39; font-weight: bold;">E</span>LEVEURS DE <span style="color: #086D39; font-weight: bold;">R</span>UMINANTS DU BENIN</span></p>
+                <p style="font-size: 7pt; color: rgb(56, 54, 54);"><span style="color: #086D39; font-weight: bold; font-size: 8pt !important;">A</span>SSOCIATION <span style="color: #086D39; font-weight: bold; font-size: 8pt !important;">N</span>ATIONALE DES <span style="color: #086D39; font-weight: bold; font-size: 8pt !important;">O</span>RGANISATIONS <span style="color: #086D39; font-weight: bold; font-size: 8pt !important;">P</span>ROFESSIONNELLES <br>D'<span style="color: #086D39; font-weight: bold; font-size: 8pt !important;">E</span>LEVEURS DE <span style="color: #086D39; font-weight: bold; font-size: 8pt !important;">R</span>UMINANTS DU BENIN</span></p>
                 <h1  style="color: #086D39;">ANOPER - BENIN</h1>
-                <p style="font-size: 7pt; color: rgb(56, 54, 54);"><span style="color: #086D39; font-weight: bold;">U</span>NION <span style="color: #086D39; font-weight: bold;">D</span>EPARTEMENTALE DES <span style="color: #086D39; font-weight: bold;">O</span>RGANISATIONS <span style="color: #086D39; font-weight: bold;">P</span>ROFESSIONNELLES <br>D'<span style="color: #086D39; font-weight: bold;">E</span>LEVEURS DE <span style="color: #086D39; font-weight: bold;">R</span>UMINANTS DU BENIN</p>
+                <p style="font-size: 7pt; color: rgb(56, 54, 54);"><span style="color: #086D39; font-weight: bold; font-size: 8pt !important;">U</span>NION <span style="color: #086D39; font-weight: bold; font-size: 8pt !important;">D</span>EPARTEMENTALE DES <span style="color: #086D39; font-weight: bold; font-size: 8pt !important;">O</span>RGANISATIONS <span style="color: #086D39; font-weight: bold; font-size: 8pt !important;">P</span>ROFESSIONNELLES <br>D'<span style="color: #086D39; font-weight: bold; font-size: 8pt !important;">E</span>LEVEURS DE <span style="color: #086D39; font-weight: bold; font-size: 8pt !important;">R</span>UMINANTS DU BENIN</p>
                 <h1  style="color: #086D39;"> UDOPER ATACORA-DONGA </h1>
             </div>
 
-            <!-- Armoiries du Bénin -->
-            <img src="{{ $previewHtml ? asset('assets/benin-coa.webp') : public_path('assets/benin-coa.webp') }}"
+            <!-- Armoiries du Bénin benin-coa.webp -->
+            <img src="{{ $previewHtml ? asset('assets/logoa.jpg') : public_path('assets/logoa.jpg') }}"
                  class="verso-coa" alt="Armoiries Bénin"
                  onerror="this.style.display='none'">
         </div>
@@ -521,7 +538,7 @@
             <!-- Coordonnées -->
             <div class="verso-address">
                 <div class="verso-address-left">
-                    <p>BP 66, Sassirou / Djougou – République du Bénin</p>
+                    <p>BP 266, Sassirou / Djougou – République du Bénin</p>
                     <p>Tél. +229 01 52 88 02 60</p>
                 </div>
                 <div class="verso-address-right">
