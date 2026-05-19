@@ -365,12 +365,8 @@
                     </span>
                 </div>
                 <div class="info-row">
-                    <span class="label">Sexe</span>
-                    <span class="value">{{ $breeder->gender ?? '—' }}</span>
-                </div>
-                <div class="info-row">
-                    <span class="label">Situation matrimoniale</span>
-                    <span class="value">{{ $breeder->marital_status ?? '—' }}</span>
+                    <span class="label">Sexe / Situation matrimoniale</span>
+                    <span class="value">{{ $breeder->gender ?? '—' }} / {{ $breeder->marital_status ?? '—' }}</span>
                 </div>
 
                 <div class="row-spacer"></div>
@@ -379,23 +375,21 @@
                     <span class="value">{{ $breeder->department ?? '—' }}</span>
                 </div>
                 <div class="info-row">
-                    <span class="label">Commune</span>
+                    <span class="label">Commune / UCOPER</span>
                     <span class="value">{{ $breeder->city ?? '—' }}</span>
                 </div>
                 <div class="info-row">
-                    <span class="label">Arrondissement</span>
+                    <span class="label">Arrondissement / UAGPER</span>
                     <span class="value">{{ $breeder->borough ?? '—' }}</span>
                 </div>
                 <div class="info-row">
-                    <span class="label">Village ou Qtier</span>
+                    <span class="label">Village ou Qtier / GPER</span>
                     <span class="value">{{ $breeder->neighborhood ?? '—' }}</span>
                 </div>
-
-                <div class="row-spacer"></div>
-                <div class="info-row">
+                <!--div class="info-row">
                     <span class="label">UCOPER</span>
                     <span class="value">{{ $breeder->organization ?? '—' }}</span>
-                </div>
+                </div-->
 
                 <div class="row-spacer"></div>
 
