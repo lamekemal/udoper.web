@@ -172,7 +172,7 @@
                                 <i class="fs-60 id-color icon_phone"></i>
                                 <div class="ms-3">
                                     <h4 class="mb-0">Contact</h4>
-                                    <p>Tel: +229 01 97 09 17 28</p>
+                                    <p>Tel: +229 01 66 49 99 44</p>
                                 </div>
                             </div>
                         </div>
@@ -617,7 +617,7 @@
                             <div class="spacer-20"></div>
 
                             <div class="fw-bold text-white"><i class="icofont-phone me-2 id-color"></i>Téléphone</div>
-                            +229 01 97 09 17 28
+                            +229 01 66 49 99 44
                             <div class="spacer-20"></div>
 
                             <div class="fw-bold text-white"><i class="icofont-envelope me-2 id-color"></i>Contact mail
