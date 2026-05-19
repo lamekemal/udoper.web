@@ -237,7 +237,7 @@ new class extends Component
 
         return response()->streamDownload(function () use ($pdf) {
             echo $pdf;
-        }, 'carte-membre-' . $breeder->breeder_number. $randomString . '.pdf');
+        }, 'carte-membre-' . $breeder->breeder_number. '-' . $this->randomString . '.pdf');
     }
 
     public function openCreateModal(): void
