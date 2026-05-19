@@ -464,10 +464,10 @@
 
             <!-- Nom de l'organisation -->
             <div class="verso-org-name">
-                <h3>ASSOCIATION NATIONALE DESORGANISATIONS PROFESSIONNELLES DES ELEVEURS DE RUMINANTS DU BENIN</h3>
+                <p style="font-size: 10pt;">ASSOCIATION NATIONALE DESORGANISATIONS PROFESSIONNELLES DES ELEVEURS DE RUMINANTS DU BENIN</p>
                 <h1>ANOPER - BENIN</h1>
-                <h3>UNION DEPARTEMENTALE DES ORGANISATIONS PROFESSIONNELLES DES ELEVEURS DE RUMINANTS DU BENIN</h3>
-                <h3> UDOPER ATACORA-DONGA </h3>
+                <p>UNION DEPARTEMENTALE DES ORGANISATIONS PROFESSIONNELLES DES ELEVEURS DE RUMINANTS DU BENIN</p>
+                <h1> UDOPER ATACORA-DONGA </h1>
             </div>
 
             <!-- Armoiries du Bénin -->
