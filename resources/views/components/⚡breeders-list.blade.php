@@ -81,7 +81,6 @@ new class extends Component
             'borough' => $this->borough,
             'city' => $this->city,
             'geographic_location' => $this->geographic_location,
-            'breeder_number' => $this->breeder_number,
             'date_of_membership' => $this->date_of_membership,
             'date_of_registration' => $this->date_of_registration,
             'organization' => $this->organization,
@@ -133,8 +132,8 @@ new class extends Component
             'neighborhood' => 'nullable|string|max:255',
             'borough' => 'nullable|string|max:255',
             'city' => 'nullable|string|max:255',
-            'geographic_location' => 'nullable|string|max:255',
-            'breeder_number' => 'required|string|unique:breeders,breeder_number,' . $this->editingBreeder->id,
+            'geographic_location' => 'nullable|string|max:255',//            'breeder_number' => 'required|string|unique:breeders,breeder_number,' . $this->editingBreeder->id,
+
             'date_of_membership' => 'nullable|date',
             'date_of_registration' => 'nullable|date',
             'organization' => 'nullable|string|max:255',
@@ -254,7 +253,7 @@ new class extends Component
         }, 'carte-membre-' . $breeder->membership_number . '.pdf');
     }
 
-    private function resetForm()
+    private function resetFormX()
     {
         $this->first_name = '';
         $this->last_name = '';
@@ -276,7 +275,27 @@ new class extends Component
         $this->id_expiration_date = '';
         $this->editingBreeder = null;
     }
-};
+    public function openCreateModal(): void
+    {
+        $this->resetForm();                                    // remet tout à zéro
+        $this->breeder_number = Breeder::generateBreederNumber(); // génère le numéro
+        $this->showCreateModal = true;
+    }
+
+    public function resetForm(): void
+    {
+        $this->reset([
+            'first_name', 'last_name', 'email', 'date_of_birth', 'place_of_birth',
+            'contact', 'neighborhood', 'borough', 'city', 'geographic_location',
+            'date_of_membership', 'date_of_registration', 'organization',
+            'id_photo', 'signature_photo', 'id_issued_date', 'id_expiration_date',
+            'editingBreeder',
+        ]);
+
+        // Régénérer le numéro à chaque reset (prêt pour la prochaine création)
+        $this->breeder_number = Breeder::generateBreederNumber();
+    }
+ };
 ?>
 
 @php
@@ -289,7 +308,8 @@ new class extends Component
 <div>
     <div class="flex justify-between items-center mb-4">
         <h1 class="text-2xl font-bold">Liste des Éleveurs</h1>
-        <flux:button variant="primary" wire:click="$set('showCreateModal', true)">Ajouter Éleveur</flux:button>
+        <!--flux:button variant="primary" wire:click="$set('showCreateModal', true)">Ajouter Éleveur</flux:button-->
+        <flux:button variant="primary" wire:click="openCreateModal">Ajouter Éleveur</flux:button>
     </div>
 
     <flux:input placeholder="Rechercher..." wire:model.live="search" />
@@ -377,10 +397,7 @@ new class extends Component
             </flux:field>
             <flux:field>
                 <flux:label>Numéro Éleveur</flux:label>
-                <flux:input
-                    value="{{ $breeder->breeder_number ?? 'Généré automatiquement' }}"
-                    readonly
-                />
+                <flux:input wire:model="breeder_number" readonly />
             </flux:field>
             <flux:field>
                 <flux:label>Date d'Adhésion</flux:label>
