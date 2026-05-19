@@ -341,7 +341,11 @@
     <!-- ══════════════════ RECTO ══════════════════ -->
     <div class="card">
 
-        <div class="card-title">CARTE DE MEMBRE DE L'ANOPER BENIN</div>
+        <div class="card-title">CARTE DE MEMBRE ANOPER BENIN
+            <p style="font-size: 7pt; margin-top:4px; color: rgb(56, 54, 54);">UDOPER ATACORA-DONGA</p>
+
+        </div>
+
 
         <div class="card-body">
             <!-- Informations de l'éleveur -->
