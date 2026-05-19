@@ -549,7 +549,7 @@
         <!-- En-tête avec logos -->
         <div class="verso-header">
             <!-- Logo UDOPER -->
-            <img src="{{ $previewHtml ? asset('assets/assets/logoa.jpg') : public_path('assets/logoa.jpg') }}"
+            <img src="{{ $previewHtml ? asset('assets/logoa.jpg') : public_path('assets/logoa.jpg') }}"
                  class="verso-logo" alt="Logo UDOPER"
                  onerror="this.style.display='none'">
 
