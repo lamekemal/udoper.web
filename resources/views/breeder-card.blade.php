@@ -490,7 +490,10 @@
 
     <!-- ══════════════════ VERSO ══════════════════ -->
     <div class="cardb">
-
+                    <div class="card-background-logo">
+                <!-- Remplacez le chemin 'logo-anoper.png' par votre logique Blade si nécessaire -->
+                <img src="{{ asset('assets/fromage.jpg') }}" alt="Logo udoper Fond">
+            </div>
         <!-- En-tête avec logos -->
         <div class="verso-header">
             <!-- Logo UDOPER -->
