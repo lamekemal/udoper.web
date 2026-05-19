@@ -365,8 +365,8 @@
                     </span>
                 </div>
                 <div class="info-row">
-                    <span class="label">Sexe / Situation matrimoniale</span>
-                    <span class="value">{{ $breeder->gender ?? '—' }} / {{ $breeder->marital_status ?? '—' }}</span>
+                    <span class="label">Sexe</span>
+                    <span class="value">{{ $breeder->gender ?? '—' }}</span>
                 </div>
 
                 <div class="row-spacer"></div>
