@@ -342,7 +342,7 @@
     <div class="card">
 
         <div class="card-title">CARTE DE MEMBRE DE L'ANOPER BENIN</div>
-        <br>
+
         <div class="card-body">
             <!-- Informations de l'éleveur -->
             <div class="info-table">
@@ -357,7 +357,7 @@
                     <span class="value">{{ $breeder->first_name }}</span>
                 </div>
 
-                <div class="info-row bold-label" style="min-height:28px;">
+                <div class="info-row" style="min-height:28px;">
                     <span class="label" style="font-weight:bold;">Date et Lieu<br>de Naissance</span>
                     <span class="value">
                         {{ $breeder->date_of_birth ? \Carbon\Carbon::parse($breeder->date_of_birth)->format('d/m/Y') : '—' }}
@@ -384,10 +384,10 @@
 
                 <div class="row-spacer"></div>
 
-                <div class="info-row">
+                <!--div class="info-row">
                     <span class="label">UDOPER</span>
                     <span class="value">{{ $breeder->organization ?? '—' }}</span>
-                </div>
+                </div-->
 
                 <div class="row-spacer"></div>
 
@@ -401,8 +401,12 @@
                     <span class="value">{{ $breeder->id_expiration_date ? \Carbon\Carbon::parse($breeder->id_expiration_date)->format('d/m/Y') : '—' }}</span>
                 </div>
                 <div class="info-row">
-                    <span class="label">Délivrance et Expriration :</span>
-                      <span style="color:#E8112D!important; font-weight:bold;">Du {{ $breeder->id_issued_date ? \Carbon\Carbon::parse($breeder->id_issued_date)->format('d/m/Y') : '—' }} Au {{ $breeder->id_expiration_date ? \Carbon\Carbon::parse($breeder->id_expiration_date)->format('d/m/Y') : '—' }}</span>
+                    <span class="label">Délivrance :</span>
+                      <span style="color:#E8112D!important; font-weight:bold;">{{ $breeder->id_issued_date ? \Carbon\Carbon::parse($breeder->id_issued_date)->format('d/m/Y') : '—' }}</span>
+                </div>
+                <div class="info-row">
+                    <span class="label">Expriration :</span>
+                      <span style="color:#E8112D!important; font-weight:bold;">{{ $breeder->id_expiration_date ? \Carbon\Carbon::parse($breeder->id_expiration_date)->format('d/m/Y') : '—' }}</span>
                 </div>
             </div>
 
@@ -460,7 +464,10 @@
 
             <!-- Nom de l'organisation -->
             <div class="verso-org-name">
-                <h1>ASSOCIATION NATIONALE DES<br>ORGANISATIONS PROFESSIONNELLES<br>DES ELEVEURS DE RUMINANTS DU BENIN</h1>
+                <h3>ASSOCIATION NATIONALE DESORGANISATIONS PROFESSIONNELLES DES ELEVEURS DE RUMINANTS DU BENIN</h3>
+                <h1>ANOPER - BENIN</h1>
+                <h3>UNION DEPARTEMENTALE DES ORGANISATIONS PROFESSIONNELLES DES ELEVEURS DE RUMINANTS DU BENIN</h3>
+                <h3> UDOPER ATACORA-DONGA </h3>
             </div>
 
             <!-- Armoiries du Bénin -->
@@ -475,19 +482,19 @@
             <!-- Coordonnées -->
             <div class="verso-address">
                 <div class="verso-address-left">
-                    <p>BP 15 Gogounou – République du Bénin</p>
-                    <p>Tél. 23 63 53 52/0167 74 81 87</p>
+                    <p>BP 66, Sassirou / Djougou – République du Bénin</p>
+                    <p>Tél. +229 01 52 88 02 60</p>
                 </div>
                 <div class="verso-address-right">
-                    <p>Email : anoper.benin@yahoo.com</p>
-                    <p>Site web : www.anoper.org</p>
+                    <p>Email : udoperad@yahoo.fr</p>
+                    <p>Site web : www.udoperad.bj</p>
                 </div>
             </div>
 
             <!-- Conditions d'utilisation -->
             <div class="verso-conditions">
                 <p>Cette carte est strictement personnelle. Le titulaire s'engage à respecter les statuts et règlements de l'Association.<br>
-                En cas de perte ou de vol, informez immédiatement le secrétariat de l'ANOPER BENIN.</p>
+                En cas de perte ou de vol, informez immédiatement le secrétariat de l'UDOPER-AD.</p>
             </div>
 
             <!-- Signature du Président -->
