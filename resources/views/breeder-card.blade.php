@@ -366,7 +366,7 @@
         <!-- Logo en filigrane au centre pour le fond -->
             <div class="card-background-logo">
                 <!-- Remplacez le chemin 'logo-anoper.png' par votre logique Blade si nécessaire -->
-                <img src="{{ asset('assets/logo-udoper-ad.png') }}" alt="Logo udoper Fond">
+                <img src="{{ asset('assets/11428878.png') }}" alt="Logo udoper Fond">
             </div>
         <div class="card-title">CARTE DE MEMBRE ANOPER BENIN
             <p style="font-size: 9pt; margin-top:4px; color: rgb(8, 109, 57); text-decoration: none;">UDOPER ATACORA-DONGA</p>
