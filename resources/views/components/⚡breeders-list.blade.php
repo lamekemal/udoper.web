@@ -377,7 +377,10 @@ new class extends Component
             </flux:field>
             <flux:field>
                 <flux:label>Numéro Éleveur</flux:label>
-                <flux:input wire:model="breeder_number" />
+                <flux:input
+                    value="{{ $breeder->breeder_number ?? 'Généré automatiquement' }}"
+                    readonly
+                />
             </flux:field>
             <flux:field>
                 <flux:label>Date d'Adhésion</flux:label>
@@ -461,7 +464,10 @@ new class extends Component
             </flux:field>
             <flux:field>
                 <flux:label>Numéro Éleveur</flux:label>
-                <flux:input wire:model="breeder_number" />
+                <flux:input
+                    value="{{ $breeder->breeder_number ?? 'Généré automatiquement' }}"
+                    readonly
+                />
             </flux:field>
             <flux:field>
                 <flux:label>Date d'Adhésion</flux:label>

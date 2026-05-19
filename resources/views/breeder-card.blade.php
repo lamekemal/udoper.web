@@ -146,7 +146,8 @@
         .photo-box img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: contain; /* L'image s'adapte sans être coupée ni déformée */
+            object-position: center; /* Centre l'image s'il y a des espaces vides */
         }
 
         .qr-box {
@@ -401,8 +402,7 @@
                 </div>
                 <div class="info-row">
                     <span class="label">Délivrance et Expriration :</span>
-                      <span style="color:#E8112D!important; text-decoration: bold;">Du {{ $breeder->id_issued_date ? \Carbon\Carbon::parse($breeder->id_issued_date)->format('d/m/Y') : '—' }}</span>
-                      <span style="color:#E8112D!important; text-decoration: bold;">Au {{ $breeder->id_expiration_date ? \Carbon\Carbon::parse($breeder->id_expiration_date)->format('d/m/Y') : '—' }}</span>
+                      <span style="color:#E8112D!important; font-weight:bold;">Du {{ $breeder->id_issued_date ? \Carbon\Carbon::parse($breeder->id_issued_date)->format('d/m/Y') : '—' }} Au {{ $breeder->id_expiration_date ? \Carbon\Carbon::parse($breeder->id_expiration_date)->format('d/m/Y') : '—' }}</span>
                 </div>
             </div>
 
@@ -423,7 +423,7 @@
 
                 <!-- signature -->
                 <div class="sign-box">
-                     <span class="label">Signature</span>
+                     <span style="font-size: 8.5pt; font-align: center; ">Signature</span>
                                        @if($breeder->signature_photo)
                         <div class="signature-photo">
                             <img src="{{ $previewHtml ? asset('storage/' . $breeder->signature_photo) : public_path('storage/' . $breeder->signature_photo) }}" alt="Signature">
