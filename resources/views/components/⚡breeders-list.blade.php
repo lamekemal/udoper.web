@@ -81,6 +81,7 @@ new class extends Component
             'borough' => $this->borough,
             'city' => $this->city,
             'geographic_location' => $this->geographic_location,
+            'breeder_number' => $this->breeder_number,
             'date_of_membership' => $this->date_of_membership,
             'date_of_registration' => $this->date_of_registration,
             'organization' => $this->organization,
@@ -115,8 +116,8 @@ new class extends Component
         $this->organization = $breeder->organization;
         $this->id_issued_date = $breeder->id_issued_date;
         $this->id_expiration_date = $breeder->id_expiration_date;
-        $this->id_photo = null; // Reset file input
-        $this->signature_photo = null; // Reset file input
+        $this->id_photo = null;
+        $this->signature_photo = null;
         $this->showEditModal = true;
     }
 
@@ -201,38 +202,6 @@ new class extends Component
         session()->flash('message', 'Dates de carte renouvelées avec succès.');
     }
 
-    /*public function downloadPdf($id)
-    {
-        $breeder = Breeder::findOrFail($id);
-        $pdf = \Barryvdh\DomPDF\Facade\Pdf::loadView('breeder-card', compact('breeder'));
-        return response()->streamDownload(function () use ($pdf) {
-            echo $pdf->output();
-        }, 'carte-membre-' . $breeder->membership_number . '.pdf');
-    }*/
-    /*public function downloadPdf($id)
-    {
-        $breeder = Breeder::findOrFail($id);
-        $html = view('breeder-card', compact('breeder'))->render();
-
-        $pdf = Browsershot::html($html)
-            ->setTemporaryDirectory(storage_path('app/browsershot'))
-            ->noSandbox()
-                // --- Options cruciales pour les dimensions ---
-            ->paperSize(380, 680, 'px') // Attention : Browsershot utilise (hauteur, largeur) ou inversement selon la version, vérifiez l'ordre.
-            ->margins(0, 0, 0, 0)       // Force toutes les marges à zéro
-            ->preferCSSPageSize()       // Force l'utilisation de @page size dans le CSS
-            ->hideHeaderAndFooter()     // Supprime les zones blanches d'en-tête/pied
-            ->addChromiumArguments([
-                '--disable-setuid-sandbox',
-                '--disable-extensions',
-                '--disable-dev-shm-usage' // Helps with memory issues in Docker/Linux
-            ])
-            ->pdf();
-
-        return response()->streamDownload(function () use ($pdf) {
-            echo $pdf;
-        }, 'carte-membre-' . $breeder->membership_number . '.pdf');
-    }*/
     public function downloadPdf($id)
     {
         $breeder = Breeder::findOrFail($id);
@@ -241,10 +210,10 @@ new class extends Component
         $pdf = Browsershot::html($html)
             ->setChromePath('/usr/bin/chromium')
             ->noSandbox()
-            ->paperSize(380, 680, 'px') // Attention : Browsershot utilise (hauteur, largeur) ou inversement selon la version, vérifiez l'ordre.
-            ->margins(0, 0, 0, 0)       // Force toutes les marges à zéro
-            ->preferCSSPageSize()       // Force l'utilisation de @page size dans le CSS
-            ->hideHeaderAndFooter()     // Supprime les zones blanches d'en-tête/pied
+            ->paperSize(380, 680, 'px')
+            ->margins(0, 0, 0, 0)
+            ->preferCSSPageSize()
+            ->hideHeaderAndFooter()
             ->pdf();
 
         return response()->streamDownload(function () use ($pdf) {
@@ -252,32 +221,10 @@ new class extends Component
         }, 'carte-membre-' . $breeder->membership_number . '.pdf');
     }
 
-    private function resetFormX()
-    {
-        $this->first_name = '';
-        $this->last_name = '';
-        $this->email = '';
-        $this->date_of_birth = '';
-        $this->place_of_birth = '';
-        $this->contact = '';
-        $this->neighborhood = '';
-        $this->borough = '';
-        $this->city = '';
-        $this->geographic_location = '';
-        $this->breeder_number = '';
-        $this->date_of_membership = '';
-        $this->date_of_registration = '';
-        $this->organization = '';
-        $this->id_photo = null;
-        $this->signature_photo = null;
-        $this->id_issued_date = '';
-        $this->id_expiration_date = '';
-        $this->editingBreeder = null;
-    }
     public function openCreateModal(): void
     {
-        $this->resetForm();                                    // remet tout à zéro
-        $this->breeder_number = Breeder::generateBreederNumber(); // génère le numéro
+        $this->resetForm();
+        $this->breeder_number = Breeder::generateBreederNumber();
         $this->showCreateModal = true;
     }
 
@@ -291,7 +238,6 @@ new class extends Component
             'editingBreeder',
         ]);
 
-        // Régénérer le numéro à chaque reset (prêt pour la prochaine création)
         $this->breeder_number = Breeder::generateBreederNumber();
     }
 };
@@ -307,50 +253,49 @@ new class extends Component
 <div>
     <div class="flex justify-between items-center mb-4">
         <h1 class="text-2xl font-bold">Liste des Éleveurs</h1>
-        <!--flux:button variant="primary" wire:click="$set('showCreateModal', true)">Ajouter Éleveur</flux:button-->
         <flux:button variant="primary" wire:click="openCreateModal">Ajouter Éleveur</flux:button>
     </div>
 
-    <flux:input placeholder="Rechercher..." wire:model.live="search" />
+    <flux:input placeholder="Rechercher..." wire:model.live="search" class="mb-4" />
 
+    <flux:table>
+        <flux:table.columns>
+            <flux:table.column>Nom Complet</flux:table.column>
+            <flux:table.column>Email</flux:table.column>
+            <flux:table.column>Contact</flux:table.column>
+            <flux:table.column>Numéro Éleveur</flux:table.column>
+            <flux:table.column>Délivrance</flux:table.column>
+            <flux:table.column>Expiration</flux:table.column>
+            <flux:table.column>Actions</flux:table.column>
+        </flux:table.columns>
 
+        <flux:table.rows>
+            @foreach($breeders as $breeder)
+            <flux:table.row>
+                <flux:table.cell>{{ $breeder->full_name }}</flux:table.cell>
+                <flux:table.cell>{{ $breeder->email }}</flux:table.cell>
+                <flux:table.cell>{{ $breeder->contact }}</flux:table.cell>
+                <flux:table.cell>{{ $breeder->breeder_number }}</flux:table.cell>
+                <flux:table.cell>{{ $breeder->id_issued_date?->format('d/m/Y') ?? '—' }}</flux:table.cell>
+                <flux:table.cell>{{ $breeder->id_expiration_date?->format('d/m/Y') ?? '—' }}</flux:table.cell>
+                <flux:table.cell>
+                    <div class="flex gap-2 flex-wrap">
+                        <flux:button variant="ghost" size="sm" wire:click="edit({{ $breeder->id }})">Éditer</flux:button>
+                        <flux:button variant="ghost" size="sm" wire:click="renew({{ $breeder->id }})">Renouveler</flux:button>
+                        <flux:button variant="ghost" size="sm" wire:click="downloadPdf({{ $breeder->id }})">PDF</flux:button>
+                        <a href="{{ route('breeders.preview-html', $breeder) }}" target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded border border-slate-300 bg-white px-3 py-1 text-sm text-slate-700 hover:bg-slate-50">Voir</a>
+                        <flux:button variant="danger" size="sm" wire:click="delete({{ $breeder->id }})">Supprimer</flux:button>
+                    </div>
+                </flux:table.cell>
+            </flux:table.row>
+            @endforeach
+        </flux:table.rows>
+    </flux:table>
 
-<flux:table>
-    <flux:table.columns> {{-- Changé ici --}}
-        <flux:table.column>Nom Complet</flux:table.column> {{-- Changé ici --}}
-        <flux:table.column>Email</flux:table.column>
-        <flux:table.column>Contact</flux:table.column>
-        <flux:table.column>Numéro Éleveur</flux:table.column>
-        <flux:table.column>Délivrance</flux:table.column>
-        <flux:table.column>Expiration</flux:table.column>
-        <flux:table.column>Actions</flux:table.column>
-    </flux:table.columns>
+    <div class="mt-4">
+        {{ $breeders->links() }}
+    </div>
 
-    <flux:table.rows> {{-- Changé ici --}}
-        @foreach($breeders as $breeder)
-        <flux:table.row>
-            <flux:table.cell>{{ $breeder->full_name }}</flux:table.cell>
-            <flux:table.cell>{{ $breeder->email }}</flux:table.cell>
-            <flux:table.cell>{{ $breeder->contact }}</flux:table.cell>
-            <flux:table.cell>{{ $breeder->breeder_number }}</flux:table.cell>
-            <flux:table.cell>{{ $breeder->id_issued_date?->format('d/m/Y') ?? '—' }}</flux:table.cell>
-            <flux:table.cell>{{ $breeder->id_expiration_date?->format('d/m/Y') ?? '—' }}</flux:table.cell>
-            <flux:table.cell>
-                <div class="flex gap-2 flex-wrap">
-                    <flux:button variant="ghost" size="sm" wire:click="edit({{ $breeder->id }})">Éditer</flux:button>
-                    <flux:button variant="ghost" size="sm" wire:click="renew({{ $breeder->id }})">Renouveler</flux:button>
-                    <flux:button variant="ghost" size="sm" wire:click="downloadPdf({{ $breeder->id }})">PDF</flux:button>
-                    <a href="{{ route('breeders.preview-html', $breeder) }}" target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded border border-slate-300 bg-white px-3 py-1 text-sm text-slate-700 hover:bg-slate-50">Voir</a>
-                    <flux:button variant="danger" size="sm" wire:click="delete({{ $breeder->id }})">Supprimer</flux:button>
-                </div>
-            </flux:table.cell>
-        </flux:table.row>
-        @endforeach
-    </flux:table.rows>
-</flux:table>
-    {{ $breeders->links() }}
-
-    <!-- Modal Créer -->
     <flux:modal wire:model="showCreateModal">
         <flux:heading>Ajouter Éleveur</flux:heading>
         <div class="grid grid-cols-2 gap-4">
@@ -434,7 +379,6 @@ new class extends Component
         </flux:footer>
     </flux:modal>
 
-    <!-- Modal Éditer -->
     <flux:modal wire:model="showEditModal">
         <flux:heading>Éditer Éleveur</flux:heading>
         <div class="grid grid-cols-2 gap-4">
@@ -480,7 +424,7 @@ new class extends Component
             </flux:field>
             <flux:field>
                 <flux:label>Numéro Éleveur</flux:label>
-        <flux:input wire:model="breeder_number" readonly />
+                <flux:input wire:model="breeder_number" readonly />
             </flux:field>
             <flux:field>
                 <flux:label>Date d'Adhésion</flux:label>
@@ -519,6 +463,6 @@ new class extends Component
     </flux:modal>
 
     @if (session()->has('message'))
-        <div class="alert alert-success">{{ session('message') }}</div>
+        <div class="alert alert-success mt-4">{{ session('message') }}</div>
     @endif
 </div>
