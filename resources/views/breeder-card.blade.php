@@ -6,7 +6,7 @@
     <title>Carte de Membre ANOPER - {{ $breeder->full_name }}</title>
     <style>
         @page {
-            size: 680px 430px;
+            size: 680px 380px;
             margin: 0;
         }
 
@@ -40,7 +40,7 @@
         /* ══════════════════ RECTO ══════════════════ */
         .card {
             width: 680px;
-            height: 430px;
+            height: 380px;
             background: #ffffff;
             border: 1px solid #ccc;
             overflow: hidden;
@@ -187,7 +187,7 @@
         /* ══════════════════ VERSO ══════════════════ */
         .cardb {
             width: 680px;
-            height: 430px;
+            height: 380px;
             background: #ffffff;
             border: 1px solid #ccc;
             overflow: hidden;
@@ -400,9 +400,9 @@
                     <span class="value">{{ $breeder->id_expiration_date ? \Carbon\Carbon::parse($breeder->id_expiration_date)->format('d/m/Y') : '—' }}</span>
                 </div>
                 <div class="info-row">
-                    <span class="label" style="color:#E8112D!important;">Délivrance et Expriration :</span>
-                      <span style="color:#E8112D!important;">Du {{ $breeder->id_issued_date ? \Carbon\Carbon::parse($breeder->id_issued_date)->format('d/m/Y') : '—' }}</span>
-                      <span style="color:#E8112D!important;">Au {{ $breeder->id_expiration_date ? \Carbon\Carbon::parse($breeder->id_expiration_date)->format('d/m/Y') : '—' }}</span>
+                    <span class="label">Délivrance et Expriration :</span>
+                      <span style="color:#E8112D!important; text-decoration: bold;">Du {{ $breeder->id_issued_date ? \Carbon\Carbon::parse($breeder->id_issued_date)->format('d/m/Y') : '—' }}</span>
+                      <span style="color:#E8112D!important; text-decoration: bold;">Au {{ $breeder->id_expiration_date ? \Carbon\Carbon::parse($breeder->id_expiration_date)->format('d/m/Y') : '—' }}</span>
                 </div>
             </div>
 
@@ -441,7 +441,7 @@
                 Téléphone : <span class="phone-red">{{ $breeder->contact ?? '—' }}</span>
             </div>
             <div class="footer-right">
-                Immatriculat° N° : <span class="immat-number">{{ $breeder->breeder_number ?? '—' }}/ANO</span>
+                Immatriculat° N° : <span class="immat-number">{{ $breeder->breeder_number ?? '—' }}</span>
             </div>
         </div>
 
@@ -464,7 +464,7 @@
             </div>
 
             <!-- Armoiries du Bénin -->
-            <img src="{{ $previewHtml ? asset('assets/benin-coa.png') : public_path('assets/benin-coa.png') }}"
+            <img src="{{ $previewHtml ? asset('assets/benin-coa.webp') : public_path('assets/benin-coa.webp') }}"
                  class="verso-coa" alt="Armoiries Bénin"
                  onerror="this.style.display='none'">
         </div>
