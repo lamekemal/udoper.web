@@ -51,7 +51,7 @@
             flex-direction: column;
         }
 
-        /* Titre principal */
+        /* Titre principal
         .card-title {
             text-align: center;
             font-size: 15pt;
@@ -60,8 +60,43 @@
             letter-spacing: 0.5px;
             margin-bottom: 12px;
             color: #000;
+        }*/
+        /* Conteneur parent pour aligner les logos et le titre */
+        .card-header-container {
+            display: flex;
+            align-items: center;      /* Centre verticalement les logos et le texte */
+            justify-content: space-between; /* Aligne un logo à gauche, un à droite, le titre au milieu */
+            margin-bottom: 12px;
+            width: 100%;
         }
 
+        /* Style du titre ajusté */
+        .card-title {
+            flex: 1;                  /* Prend tout l'espace central disponible */
+            text-align: center;       /* Centre parfaitement le texte au milieu */
+            font-size: 15pt;
+            font-weight: bold;
+            text-decoration: underline;
+            letter-spacing: 0.5px;
+            color: #000;
+            margin: 0 10px;          /* Petite marge pour ne pas coller aux logos */
+        }
+
+        /* Style unique pour les deux logos */
+        .card-logo {
+            width: 90px;
+            height: 90px;
+            object-fit: contain;      /* Évite de déformer vos logos s'ils ne sont pas parfaitement carrés */
+        }
+
+        /* Votre zone principale reste inchangée */
+        .card-body {
+            display: flex;
+            flex: 1;
+            gap: 10px;
+            position: relative;
+            z-index: 2;
+        }
         /* Zone principale existante */
         .card-body {
             display: flex;
