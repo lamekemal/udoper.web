@@ -33,6 +33,12 @@ class BreederFactory extends Factory
             'date_of_registration' => now(),
             'organization' => $this->faker->company(),
             'id_photo' => null, // Placeholder
+            'signature_photo' => null, // Placeholder
+            'id_issued_date' => $this->faker->date(),
+            'id_expiration_date' => $this->faker->date(),
+            'gender' => $this->faker->gender(),
+            'marital_status' => $this->faker->maritalStatus(),
+            'department' => $this->faker->state(),
         ];
     }
 }

@@ -17,7 +17,7 @@ new class extends Component
     public $showCreateModal = false;
     public $showEditModal = false;
     public $editingBreeder = null;
-    public $first_name, $last_name, $email, $date_of_birth, $place_of_birth, $contact, $neighborhood, $borough, $city, $geographic_location, $breeder_number, $date_of_membership, $date_of_registration, $organization, $id_photo, $signature_photo, $id_issued_date, $id_expiration_date;
+    public $first_name, $last_name, $email, $date_of_birth, $place_of_birth, $contact, $neighborhood, $borough, $city, $geographic_location, $breeder_number, $date_of_membership, $date_of_registration, $organization, $id_photo, $signature_photo, $id_issued_date, $id_expiration_date, $gender, $marital_status, $department;
 
     public function mount()
     {
@@ -50,6 +50,9 @@ new class extends Component
             'signature_photo' => 'nullable|image|max:2048',
             'id_issued_date' => 'nullable|date',
             'id_expiration_date' => 'nullable|date',
+            'gender' => 'nullable|string|max:255',
+            'marital_status' => 'nullable|string|max:255',
+            'department' => 'nullable|string|max:255',
         ]);
 
         $photoPath = null;
@@ -89,6 +92,9 @@ new class extends Component
             'signature_photo' => $signaturePhotoPath,
             'id_issued_date' => $this->id_issued_date,
             'id_expiration_date' => $this->id_expiration_date,
+            'gender' => $this->gender,
+            'marital_status' => $this->marital_status,
+            'department' => $this->department,
         ]);
 
         $this->resetForm();
@@ -119,6 +125,9 @@ new class extends Component
         $this->id_photo = null;
         $this->signature_photo = null;
         $this->showEditModal = true;
+        $this->gender = $breeder->gender;
+        $this->marital_status = $breeder->marital_status;
+        $this->department = $breeder->department;
     }
 
     public function update()
@@ -141,6 +150,9 @@ new class extends Component
             'signature_photo' => 'nullable|image|max:2048',
             'id_issued_date' => 'nullable|date',
             'id_expiration_date' => 'nullable|date',
+            'gender' => 'nullable|string|max:255',
+            'marital_status' => 'nullable|string|max:255',
+            'department' => 'nullable|string|max:255',
         ]);
 
         $photoPath = $this->editingBreeder->id_photo;
@@ -176,6 +188,9 @@ new class extends Component
             'signature_photo' => $signaturePhotoPath,
             'id_issued_date' => $this->id_issued_date,
             'id_expiration_date' => $this->id_expiration_date,
+            'gender' => $this->gender,
+            'marital_status' => $this->marital_status,
+            'department' => $this->department,
         ]);
 
         $this->resetForm();
@@ -234,7 +249,7 @@ new class extends Component
             'first_name', 'last_name', 'email', 'date_of_birth', 'place_of_birth',
             'contact', 'neighborhood', 'borough', 'city', 'geographic_location',
             'date_of_membership', 'date_of_registration', 'organization',
-            'id_photo', 'signature_photo', 'id_issued_date', 'id_expiration_date',
+            'id_photo', 'signature_photo', 'id_issued_date', 'id_expiration_date', 'gender', 'marital_status', 'department',
             'editingBreeder',
         ]);
 
@@ -324,16 +339,28 @@ new class extends Component
                 <flux:input wire:model="contact" />
             </flux:field>
             <flux:field>
-                <flux:label>Quartier</flux:label>
-                <flux:input wire:model="neighborhood" />
+                <flux:label>Sexe</flux:label>
+                <flux:input wire:model="gender" />
+            </flux:field>
+            <flux:field>
+                <flux:label>Statut Matrimonial</flux:label>
+                <flux:input wire:model="marital_status" />
+            </flux:field>
+            <flux:field>
+                <flux:label>Département</flux:label>
+                <flux:input wire:model="department" />
+            </flux:field>
+            <flux:field>
+                <flux:label>Ville</flux:label>
+                <flux:input wire:model="city" />
             </flux:field>
             <flux:field>
                 <flux:label>Arrondissement</flux:label>
                 <flux:input wire:model="borough" />
             </flux:field>
             <flux:field>
-                <flux:label>Ville</flux:label>
-                <flux:input wire:model="city" />
+                <flux:label>Quartier</flux:label>
+                <flux:input wire:model="neighborhood" />
             </flux:field>
             <flux:field>
                 <flux:label>Localisation Géographique</flux:label>
@@ -407,16 +434,28 @@ new class extends Component
                 <flux:input wire:model="contact" />
             </flux:field>
             <flux:field>
-                <flux:label>Quartier</flux:label>
-                <flux:input wire:model="neighborhood" />
+                <flux:label>Sexe</flux:label>
+                <flux:input wire:model="gender" />
+            </flux:field>
+            <flux:field>
+                <flux:label>Statut Matrimonial</flux:label>
+                <flux:input wire:model="marital_status" />
+            </flux:field>
+            <flux:field>
+                <flux:label>Département</flux:label>
+                <flux:input wire:model="department" />
+            </flux:field>
+            <flux:field>
+                <flux:label>Ville</flux:label>
+                <flux:input wire:model="city" />
             </flux:field>
             <flux:field>
                 <flux:label>Arrondissement</flux:label>
                 <flux:input wire:model="borough" />
             </flux:field>
             <flux:field>
-                <flux:label>Ville</flux:label>
-                <flux:input wire:model="city" />
+                <flux:label>Quartier</flux:label>
+                <flux:input wire:model="neighborhood" />
             </flux:field>
             <flux:field>
                 <flux:label>Localisation Géographique</flux:label>

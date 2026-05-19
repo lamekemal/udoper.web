@@ -28,6 +28,9 @@ class Breeder extends Model
         'signature_photo',
         'id_issued_date',
         'id_expiration_date',
+        'gender',
+        'marital_status',
+        'department',
     ];
 
     protected $casts = [

@@ -364,30 +364,38 @@
                         à {{ $breeder->place_of_birth ?? '—' }}
                     </span>
                 </div>
+                <div class="info-row">
+                    <span class="label">Sexe</span>
+                    <span class="value">{{ $breeder->gender ?? '—' }}</span>
+                </div>
+                <div class="info-row">
+                    <span class="label">Situation matrimoniale</span>
+                    <span class="value">{{ $breeder->marital_status ?? '—' }}</span>
+                </div>
 
                 <div class="row-spacer"></div>
-
+                <div class="info-row">
+                    <span class="label">Département</span>
+                    <span class="value">{{ $breeder->department ?? '—' }}</span>
+                </div>
+                <div class="info-row">
+                    <span class="label">Commune</span>
+                    <span class="value">{{ $breeder->city ?? '—' }}</span>
+                </div>
+                <div class="info-row">
+                    <span class="label">Arrondissement</span>
+                    <span class="value">{{ $breeder->borough ?? '—' }}</span>
+                </div>
                 <div class="info-row">
                     <span class="label">Village ou Qtier</span>
                     <span class="value">{{ $breeder->neighborhood ?? '—' }}</span>
                 </div>
 
-                <div class="info-row">
-                    <span class="label">Arrondissement</span>
-                    <span class="value">{{ $breeder->borough ?? '—' }}</span>
-                </div>
-
-                <div class="info-row">
-                    <span class="label">Commune</span>
-                    <span class="value">{{ $breeder->city ?? '—' }}</span>
-                </div>
-
                 <div class="row-spacer"></div>
-
-                <!--div class="info-row">
-                    <span class="label">UDOPER</span>
+                <div class="info-row">
+                    <span class="label">UCOPER</span>
                     <span class="value">{{ $breeder->organization ?? '—' }}</span>
-                </div-->
+                </div>
 
                 <div class="row-spacer"></div>
 
@@ -396,10 +404,10 @@
                     <span class="value">{{ $breeder->id_issued_date ? \Carbon\Carbon::parse($breeder->id_issued_date)->format('d/m/Y') : '—' }}</span>
                 </div>
 
-                <div class="info-row">
+                <!--div class="info-row">
                     <span class="label">Date enr. :</span>
                     <span class="value">{{ $breeder->id_expiration_date ? \Carbon\Carbon::parse($breeder->id_expiration_date)->format('d/m/Y') : '—' }}</span>
-                </div>
+                </div-->
                 <div class="info-row">
                     <span class="label">Délivrance :</span>
                       <span style="color:#E8112D!important; font-weight:bold;">{{ $breeder->id_issued_date ? \Carbon\Carbon::parse($breeder->id_issued_date)->format('d/m/Y') : '—' }}</span>
@@ -464,9 +472,9 @@
 
             <!-- Nom de l'organisation -->
             <div class="verso-org-name">
-                <p style="font-size: 7pt;">ASSOCIATION NATIONALE DESORGANISATIONS PROFESSIONNELLES DES ELEVEURS DE RUMINANTS DU BENIN</p>
+                <p style="font-size: 7pt;">ASSOCIATION NATIONALE DES ORGANISATIONS PROFESSIONNELLES <br>D'ELEVEURS DE RUMINANTS DU BENIN</p>
                 <h1>ANOPER - BENIN</h1>
-                <p style="font-size: 7pt;">UNION DEPARTEMENTALE DES ORGANISATIONS PROFESSIONNELLES DES ELEVEURS DE RUMINANTS DU BENIN</p>
+                <p style="font-size: 7pt;">UNION DEPARTEMENTALE DES ORGANISATIONS PROFESSIONNELLES <br>D'ELEVEURS DE RUMINANTS DU BENIN</p>
                 <h1> UDOPER ATACORA-DONGA </h1>
             </div>
 
@@ -504,7 +512,7 @@
                         @if(isset($issuer_signature_path) && $issuer_signature_path)
                             <img src="{{ $previewHtml ? asset('storage/' . $issuer_signature_path) : public_path('storage/' . $issuer_signature_path) }}" alt="Cachet et Signature">
                         @else
-                         <img src="{{ $previewHtml ? asset('assets/signed.jpeg') : public_path('assets/signed.jpeg') }}" alt="Cachet et Signature">
+                         <img src="{{ $previewHtml ? asset('assets/signed.svg') : public_path('assets/signed.svg') }}" alt="Cachet et Signature">
                         @endif
                     </div>
                     <div class="president-name">Aboubakar ALFA TIDJANI</div>
