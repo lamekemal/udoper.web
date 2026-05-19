@@ -233,7 +233,8 @@ new class extends Component
 
         return response()->streamDownload(function () use ($pdf) {
             echo $pdf;
-        }, 'carte-membre-' . $breeder->membership_number . '.pdf');
+            $randomString = substr(md5(uniqid(rand(), true)), 0, 8);
+        }, 'carte-membre-' . $breeder->breeder_number. $randomString . '.pdf');
     }
 
     public function openCreateModal(): void

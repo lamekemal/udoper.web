@@ -469,9 +469,9 @@
 
             <!-- Nom de l'organisation -->
             <div class="verso-org-name">
-                <p style="font-size: 7pt;">ASSOCIATION NATIONALE DES ORGANISATIONS PROFESSIONNELLES <br>D'ELEVEURS DE RUMINANTS DU BENIN</p>
+                <p style="font-size: 7pt; color: rgb(56, 54, 54);">ASSOCIATION NATIONALE DES ORGANISATIONS PROFESSIONNELLES <br>D'ELEVEURS DE RUMINANTS DU BENIN</p>
                 <h1>ANOPER - BENIN</h1>
-                <p style="font-size: 7pt;">UNION DEPARTEMENTALE DES ORGANISATIONS PROFESSIONNELLES <br>D'ELEVEURS DE RUMINANTS DU BENIN</p>
+                <p style="font-size: 7pt; color: rgb(56, 54, 54);">UNION DEPARTEMENTALE DES ORGANISATIONS PROFESSIONNELLES <br>D'ELEVEURS DE RUMINANTS DU BENIN</p>
                 <h1> UDOPER ATACORA-DONGA </h1>
             </div>
 
