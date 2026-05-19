@@ -234,10 +234,10 @@ new class extends Component
             ->preferCSSPageSize()
             ->hideHeaderAndFooter()
             ->pdf();
-
+        $timestamp = now()->format('Ymd-His');
         return response()->streamDownload(function () use ($pdf) {
             echo $pdf;
-        }, 'carte-membre-' . $breeder->breeder_number. '-' . $this->randomString . '.pdf');
+        }, 'carte-membre-' . $breeder->breeder_number. '-' . $timestamp . '.pdf');
     }
 
     public function openCreateModal(): void
