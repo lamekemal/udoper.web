@@ -62,11 +62,34 @@
             color: #000;
         }
 
-        /* Zone principale : infos gauche + photo/QR droite */
+        /* Zone principale existante */
         .card-body {
             display: flex;
             flex: 1;
             gap: 10px;
+            position: relative; /* Force le contenu à passer au-dessus du logo */
+            z-index: 2;
+        }
+
+        /* Styles pour le logo en arrière-plan centré */
+        .card-background-logo {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 65%; /* Ajustez la taille du logo ici selon le rendu souhaité */
+            max-width: 250px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1; /* Reste derrière le texte (.card-body) */
+            pointer-events: none; /* Évite toute interférence avec le curseur */
+        }
+
+        .card-background-logo img {
+            width: 100%;
+            height: auto;
+            opacity: 0.10; /* Gère la transparence : 0.10 = 10% visible pour garder le texte lisible */
         }
 
         /* Tableau des informations (gauche) */
@@ -340,9 +363,13 @@
 
     <!-- ══════════════════ RECTO ══════════════════ -->
     <div class="card">
-
+        <!-- Logo en filigrane au centre pour le fond -->
+            <div class="card-background-logo">
+                <!-- Remplacez le chemin 'logo-anoper.png' par votre logique Blade si nécessaire -->
+                <img src="{{ asset('assets/logo-udoper-ad.png') }}" alt="Logo udoper Fond">
+            </div>
         <div class="card-title">CARTE DE MEMBRE ANOPER BENIN
-            <p style="font-size: 7pt; margin-top:4px; color: rgb(56, 54, 54);">UDOPER ATACORA-DONGA</p>
+            <p style="font-size: 9pt; margin-top:4px; color: rgb(8, 109, 57); text-decoration: none;">UDOPER ATACORA-DONGA</p>
 
         </div>
 
