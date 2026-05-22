@@ -2,16 +2,16 @@
 <html lang="fr">
 
 <head>
-    <title>UDOPER-AD | Union des Organisations Professionnelles d’Éleveurs - Atakora Donga</title>
+    <title>UDOPER-AD | Union Départementale des Organisations Professionnelles d’Éleveurs  de Ruminants- Atacora Donga</title>
     <link rel="icon" href="images/icon.webp" type="image/gif" sizes="16x16">
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
     <meta name="description"
-        content="L'UDOPER Atakora Donga défend les intérêts des éleveurs de ruminants au Bénin. Promotion de l'élevage familial, transformation du lait en fromage et développement durable dans 13 communes.">
+        content="L'UDOPER Atacora Donga défend les intérêts des éleveurs de ruminants au Bénin. Promotion de l'élevage familial, transformation du lait en fromage et développement durable dans 13 communes.">
 
     <meta name="keywords"
-        content="UDOPER, élevage Bénin, Atakora Donga, éleveurs ruminants, transformation lait, fromage de chèvre, coopérative agricole, UCOPER, ANOPER, développement pastoral">
+        content="UDOPER, élevage Bénin, Atacora Donga, éleveurs ruminants, transformation lait, fromage de chèvre, coopérative agricole, UCOPER, ANOPER, développement pastoral">
 
     <meta content="Kemal Worou DARA" name="author">
 
@@ -107,8 +107,8 @@
 
                                 <div class="col-lg-6">
                                     <div class="spacer-single sm-hide"></div>
-                                    <div class="subtitle">ANOPER - BENIN</div>
-                                    <h1>Valoriser l'Élevage avec Expertise et Engagement</h1>
+                                    <div class="subtitle">UDOPER ATACORA-DONGA </div>
+                                    <h1>Valoriser l'Élevage avec de ruminants</h1>
                                     <!--a class="btn-main btn-line fx-slide" href="#"><span>Book Appointment</span></a-->
                                 </div>
 
@@ -172,7 +172,7 @@
                                 <i class="fs-60 id-color icon_phone"></i>
                                 <div class="ms-3">
                                     <h4 class="mb-0">Contact</h4>
-                                    <p>Tel: +229 01 66 49 99 44</p>
+                                    <p>Tel: +229 01 52 88 02 60</p>
                                 </div>
                             </div>
                         </div>
@@ -182,7 +182,7 @@
                                 <i class="fs-60 id-color icon_clock"></i>
                                 <div class="ms-3">
                                     <h4 class="mb-0">Heures d'ouverture</h4>
-                                    <p>Lun à Sam 08:00 - 20:00</p>
+                                    <p>Lun à Ven 08:00 - 18:00</p>
                                 </div>
                             </div>
                         </div>
@@ -238,7 +238,7 @@
                                     Performant et Durable</h2>
 
                                 <p class="wow fadeInUp" data-wow-delay=".4s">
-                                    L'UDOPER Atakora Donga est une structure coopérative faîtière départementale qui
+                                    L'UDOPER Atacora Donga est une structure coopérative faîtière départementale qui
                                     œuvre pour un élevage familial productif dans un environnement écologique,
                                     économique et social sécurisé. Nous nous engageons à défendre les intérêts des
                                     éleveurs et à promouvoir le développement durable du secteur pastoral.
@@ -265,7 +265,7 @@
                         <div class="col-lg-8 text-center">
                             <div class="subtitle wow fadeInUp mb-3">Nos Services</div>
                             <h2 class="wow fadeInUp" data-wow-delay=".2s">Un Accompagnement Complet pour le
-                                Développement de l'Élevage</h2>
+                                Développement de l'Élevage de ruminants</h2>
                             <p class="col-lg-10 offset-lg-1 mb-0 wow fadeInUp">
                                 De l'appui technique à la valorisation des produits, nous offrons des solutions adaptées
                                 pour renforcer la productivité des éleveurs et améliorer durablement leurs conditions de
@@ -282,10 +282,10 @@
                                 <div class="col-md-6 wow fadeInUp" data-wow-delay=".4s">
                                     <h4>Organisation Coopérative</h4>
                                     <p>Mise en place de groupements de femmes transformatrices et structuration des
-                                        coopératives locales.</p>
+                                        coopératives.</p>
                                 </div>
                                 <div class="col-md-6 wow fadeInUp" data-wow-delay=".5s">
-                                    <h4>Suivi Sanitaire et Pastoral</h4>
+                                    <h4>Suivi Sanitaire</h4>
                                     <p>Conduite du suivi vétérinaire et défense des ressources pastorales pour la
                                         transhumance.</p>
                                 </div>
@@ -380,13 +380,13 @@
                         </div>
                         <div class="col-md-3 col-sm-6 text-center">
                             <div class="de_count wow fadeInRight" data-wow-delay=".4s">
-                                <h3 class="fs-40 mb-0"><span class="timer" data-to="800" data-speed="13">0</span>+</h3>
+                                <h3 class="fs-40 mb-0"><span class="timer" data-to="13" data-speed="13">0</span>+</h3>
                                 Commune d'intervention
                             </div>
                         </div>
                         <div class="col-md-3 col-sm-6 text-center">
                             <div class="de_count wow fadeInRight" data-wow-delay=".6s">
-                                <h3 class="fs-40 mb-0"><span class="timer" data-to="15" data-speed="3000">0</span>+</h3>
+                                <h3 class="fs-40 mb-0"><span class="timer" data-to="800" data-speed="3000">0</span>+</h3>
                                 D'activités
                             </div>
                         </div>
@@ -403,7 +403,7 @@
                             <h2 class="wow fadeInUp" data-wow-delay=".2s">Une expertise au service de l'élevage familial
                             </h2>
                             <p class="wow fadeInUp" data-wow-delay=".4s">
-                                L'UDOPER Atakora Donga est une organisation bien structurée et gérée professionnellement
+                                L'UDOPER Atacora Donga est une organisation bien structurée et gérée professionnellement
                                 pour assurer un environnement durable à ses membres. Nous combinons défense des droits,
                                 appui technique et innovation pour transformer l'élevage de ruminants en un véritable
                                 levier de prospérité.
@@ -416,8 +416,7 @@
                                     <div class="h-100">
                                         <div class="relative wow fadeInUp">
                                             <h5>Expertise Reconnue</h5>
-                                            <p class="mb-0">Une gestion professionnelle dédiée à l'amélioration des
-                                                revenus des éleveurs.</p>
+                                            <p class="mb-0">Accompagnement des organisations d'éleveurs.</p>
                                         </div>
                                     </div>
                                 </div>
@@ -427,7 +426,7 @@
                                         <div class="relative wow fadeInUp">
                                             <h5>Valorisation Laitière</h5>
                                             <p class="mb-0">Soutien actif à la transformation du lait de vache en
-                                                fromage de qualité.</p>
+                                                fromage 'Gassire' de qualité.</p>
                                         </div>
                                     </div>
                                 </div>
@@ -437,7 +436,7 @@
                                         <div class="relative wow fadeInUp">
                                             <h5>Appui Managérial</h5>
                                             <p class="mb-0">Accompagnement technique et juridique pour le rayonnement de
-                                                nos membres.</p>
+                                                nos membres. Conseil technique spécialisé, en gestion des troupeaux, appui à l'accès au marché.</p>
                                         </div>
                                     </div>
                                 </div>
@@ -507,7 +506,7 @@
                                         Qu'est-ce que l'UDOPER AD ?
                                     </div>
                                     <div class="accordion-section-content" id="accordion-a1">
-                                        L'UDOPER Atakora Donga est une structure coopérative faîtière départementale. Sa
+                                        L'UDOPER Atacora Donga est une structure coopérative faîtière départementale. Sa
                                         mission est de défendre les intérêts des éleveurs de ruminants et de promouvoir
                                         un élevage familial performant et durable .
                                     </div>
@@ -516,7 +515,7 @@
                                         Quelles sont vos communes d'intervention ?
                                     </div>
                                     <div class="accordion-section-content" id="accordion-a2">
-                                        Nous intervenons dans 13 communes des départements de l'Atakora et de la Donga :
+                                        Nous intervenons dans 13 communes des départements de l'Atacora et de la Donga :
                                         Djougou, Copargo, Ouaké, Bassila, Péhunco, Kérou, Kouandé, Natitingou, Boukombé,
                                         Cobly, Matéri, Tanguiéta et Toucountouna.
                                     </div>
@@ -526,9 +525,8 @@
                                     </div>
                                     <div class="accordion-section-content" id="accordion-a3">
                                         Notre financement provient des cotisations de nos membres issus des groupements
-                                        professionnels (GPER et GFPER), ainsi que de l'appui de partenaires financiers
-                                        tels que Swisscontact, VSF (Vétérinaires Sans Frontières), Atife for Life et le
-                                        Ministère de l'Agriculture du Bénin.
+                                        professionnels (GPER et GFPER), ainsi que de l'appui de partenaires financiers.
+                                        
                                     </div>
 
                                     <div class="accordion-section-title" data-tab="#accordion-a4">
@@ -541,12 +539,21 @@
                                     </div>
 
                                     <div class="accordion-section-title" data-tab="#accordion-a5">
-                                        Comment êtes-vous organisés au niveau local ?
+                                        Comment êtes-vous organisés?
                                     </div>
                                     <div class="accordion-section-content" id="accordion-a5">
                                         L'organisation s'appuie sur une base pyramidale composée de groupements
                                         professionnels (GPER/GFPER), coordonnés par des Unions d'Arrondissement (UAGPER)
                                         et des Unions Communales (UCOPER).
+                                    </div>
+
+                                    
+                                    <div class="accordion-section-title" data-tab="#accordion-a5">
+                                        Quelles sont les partenaires de l'UDOPER AD ?
+                                    </div>
+                                    <div class="accordion-section-content" id="accordion-a5">
+                                        AFDI, la Coopération Swiss à travers Swisscontact, VSF (Vétérinaires Sans Frontières), CDCS du ministère de l'Europe et des affaires étrangères et l'Union Européenne à travers ACTING FOR LIFE, IFDC (ACMA3), SNV (EJASA), le
+                                        Ministère de l'Agriculture du Bénin.
                                     </div>
                                 </div>
                             </div>
@@ -567,7 +574,7 @@
                     <div class="col-lg-4 col-sm-6">
                         <img src="images/logo-white.webp" class="logo-footer" alt="Logo UDOPER AD">
                         <div class="spacer-20"></div>
-                        <p>À l'UDOPER Atakora Donga, nous nous consacrons à la défense des intérêts des éleveurs et à la
+                        <p>À l'UDOPER Atacora Donga, nous nous consacrons à la défense des intérêts des éleveurs et à la
                             promotion d'un élevage familial performant. Notre structure professionnelle accompagne ses
                             membres pour assurer un développement pastoral durable et sécurisé.</p>
 
@@ -679,7 +686,7 @@
             <div class="spacer-30-line"></div>
 
             <h5>À propos de nous</h5>
-            <p>L'UDOPER Atakora Donga est une organisation coopérative dédiée à la promotion d'un élevage familial
+            <p>L'UDOPER Atacora Donga est une organisation coopérative dédiée à la promotion d'un élevage familial
                 performant. Notre structure professionnelle accompagne les éleveurs de ruminants pour garantir un
                 environnement écologique, économique et social sécurisé de manière durable.</p>
 

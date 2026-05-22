@@ -14,6 +14,7 @@ export default defineConfig({
     ],
     server: {
         host: '192.168.100.222', // or your specific local IP
+        //host: '100.85.155.23',
         cors: true,
         watch: {
             ignored: ['**/storage/framework/views/**'],
