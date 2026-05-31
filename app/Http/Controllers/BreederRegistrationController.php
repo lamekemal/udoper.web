@@ -34,14 +34,26 @@ class BreederRegistrationController extends Controller
         ]);
         
         $photoPath = null;
-        if ($this->id_photo) {
-            $photoPath = $this->id_photo->store('id_photos', 'public');
+        if ($request->hasFile('id_photo')) {
+            $photoPath = $request->file('id_photo')->store('id_photos', 'public');
         }
 
         $signaturePhotoPath = null;
-        if ($this->signature_photo) {
-            $signaturePhotoPath = $this->signature_photo->store('signature_photos', 'public');
+        if ($request->hasFile('signature_photo')) {
+            $signaturePhotoPath = $request->file('signature_photo')->store('signature_photos', 'public');
         }
+
+        if ($photoPath) {
+            $data['id_photo'] = $photoPath;
+        }
+        if ($signaturePhotoPath) {
+            $data['signature_photo'] = $signaturePhotoPath;
+        }
+
+        if (auth()->check()) {
+            $data['savedby'] = auth()->id();
+        }
+
         Breeder::create($data);
 
         return redirect()->route('breeders.create')->with('success', 'Éleveur ajouté avec succès.');

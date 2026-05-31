@@ -35,10 +35,10 @@ class BreederFactory extends Factory
             'id_photo' => null, // Placeholder
             'signature_photo' => null, // Placeholder
             'id_issued_date' => $this->faker->date(),
-            'id_expiration_date' => $this->faker->date(),
-            'gender' => $this->faker->gender(),
-            'marital_status' => $this->faker->maritalStatus(),
-            'department' => $this->faker->state(),
+            'id_expiration_date' => null, // Laisser null pour que le getter calcule automatiquement +5 ans
+            'gender' => $this->faker->randomElement(['M', 'F']),
+            'marital_status' => $this->faker->randomElement(['Célibataire', 'Marié', 'Divorcé', 'Veuf']),
+            'department' => $this->faker->word(),
         ];
     }
 }

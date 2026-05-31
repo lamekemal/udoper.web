@@ -2,8 +2,10 @@
 
 namespace App\Models;
 
+use App\Models\BreederDue;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Breeder extends Model
 {
@@ -31,6 +33,7 @@ class Breeder extends Model
         'gender',
         'marital_status',
         'department',
+        'savedby',
     ];
 
     protected $casts = [
@@ -77,6 +80,41 @@ class Breeder extends Model
     public function getFullNameAttribute(): string
     {
         return $this->first_name.' '.$this->last_name;
+    }
+
+    public function dues(): HasMany
+    {
+        return $this->hasMany(BreederDue::class);
+    }
+
+    public function subscriptionDues(): HasMany
+    {
+        return $this->dues()->where('type', BreederDue::TYPE_SUBSCRIPTION);
+    }
+
+    public function membershipCardDues(): HasMany
+    {
+        return $this->dues()->where('type', BreederDue::TYPE_MEMBERSHIP_CARD);
+    }
+
+    public function getLatestSubscriptionDueAttribute(): ?BreederDue
+    {
+        return $this->subscriptionDues()->latest('payment_date')->first();
+    }
+
+    public function getLatestMembershipCardDueAttribute(): ?BreederDue
+    {
+        return $this->membershipCardDues()->latest('payment_date')->first();
+    }
+
+    public function getHasValidSubscriptionAttribute(): bool
+    {
+        return $this->latest_subscription_due?->valid_until?->isFuture() ?? false;
+    }
+
+    public function getHasValidMembershipCardAttribute(): bool
+    {
+        return $this->latest_membership_card_due?->valid_until?->isFuture() ?? false;
     }
 
     public function getIdExpirationDateAttribute()

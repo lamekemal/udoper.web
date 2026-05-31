@@ -2,16 +2,16 @@
 <html lang="fr">
 
 <head>
-    <title>UDOPER-AD | Union des Organisations Professionnelles d’Éleveurs - Atakora Donga</title>
+    <title>UDOPER-AD | Union des Organisations Professionnelles d’Éleveurs - Atacora Donga</title>
     <link rel="icon" href="images/icon.webp" type="image/gif" sizes="16x16">
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
     <meta name="description"
-        content="L'UDOPER Atakora Donga défend les intérêts des éleveurs de ruminants au Bénin. Promotion de l'élevage familial, transformation du lait en fromage et développement durable dans 13 communes.">
+        content="L'UDOPER Atacora Donga défend les intérêts des éleveurs de ruminants au Bénin. Promotion de l'élevage familial, transformation du lait en fromage et développement durable dans 13 communes.">
 
     <meta name="keywords"
-        content="UDOPER, élevage Bénin, Atakora Donga, éleveurs ruminants, transformation lait, fromage de chèvre, coopérative agricole, UCOPER, ANOPER, développement pastoral">
+        content="UDOPER, élevage Bénin, Atacora Donga, éleveurs ruminants, transformation lait, fromage de chèvre, coopérative agricole, UCOPER, ANOPER, développement pastoral">
 
     <meta content="Kemal Worou DARA" name="author">
 
@@ -133,7 +133,7 @@
 
                 <p>
                   Que vous soyez un éleveur, un partenaire ou un visiteur
-                  souhaitant en savoir plus sur nos activités dans l'Atakora et
+                  souhaitant en savoir plus sur nos activités dans l'Atacora et
                   la Donga, n'hésitez pas à nous contacter. Remplissez le
                   formulaire ci-dessous et notre équipe vous répondra dans les
                   plus brefs délais.
@@ -263,7 +263,7 @@
               />
               <div class="spacer-20"></div>
               <p>
-                À l'UDOPER Atakora Donga, nous nous consacrons à la défense des
+                À l'UDOPER Atacora Donga, nous nous consacrons à la défense des
                 intérêts des éleveurs et à la promotion d'un élevage familial
                 performant. Notre structure professionnelle accompagne ses
                 membres pour assurer un développement pastoral durable et
@@ -392,7 +392,7 @@
 
         <h5>À propos de nous</h5>
         <p>
-          L'UDOPER Atakora Donga est une organisation coopérative dédiée à la
+          L'UDOPER Atacora Donga est une organisation coopérative dédiée à la
           promotion d'un élevage familial performant. Notre structure
           professionnelle accompagne les éleveurs de ruminants pour garantir un
           environnement écologique, économique et social sécurisé de manière

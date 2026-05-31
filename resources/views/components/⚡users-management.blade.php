@@ -9,10 +9,22 @@ new class extends Component
     use WithPagination;
 
     public $search = '';
+    public array $roleOptions = ['user', 'admin', 'master', 'financial', 'breeder'];
 
     public function updatedSearch()
     {
         $this->resetPage();
+    }
+
+    public function changeRole(int $userId, string $role): void
+    {
+        if (! in_array($role, $this->roleOptions, true)) {
+            return;
+        }
+
+        $user = User::findOrFail($userId);
+        $user->role = $role;
+        $user->save();
     }
 };
 ?>
@@ -42,8 +54,17 @@ new class extends Component
             <flux:table.row :key="$user->id">
                 <flux:table.cell>{{ $user->name }}</flux:table.cell>
                 <flux:table.cell>{{ $user->email }}</flux:table.cell>
-                <flux:table.cell>Utilisateur</flux:table.cell>
-                
+                <flux:table.cell>
+                    <select
+                        wire:change="changeRole({{ $user->id }}, $event.target.value)"
+                        class="w-full rounded border border-gray-300 bg-white px-2 py-1 text-sm"
+                    >
+                        @foreach($roleOptions as $roleOption)
+                            <option value="{{ $roleOption }}" @selected($user->role === $roleOption)>{{ ucfirst($roleOption) }}</option>
+                        @endforeach
+                    </select>
+                </flux:table.cell>
+
                 <flux:table.cell>
                     <div class="flex gap-2">
                         <flux:button variant="ghost" size="sm">Éditer</flux:button>

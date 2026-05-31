@@ -11,25 +11,44 @@
             </flux:sidebar.header>
 
             <flux:sidebar.nav>
+                @php
+                    $role = auth()->check() ? (string) auth()->user()->role : 'user';
+                @endphp
+
                 <flux:sidebar.group :heading="__('Platform')" class="grid">
                     <flux:sidebar.item icon="home" :href="route('dashboard')" :current="request()->routeIs('dashboard')" wire:navigate>
                         {{ __('Dashboard') }}
                     </flux:sidebar.item>
-                    <flux:sidebar.item icon="users" :href="route('breeders')" :current="request()->routeIs('breeders')" wire:navigate>
-                        {{ __('Éleveurs') }}
-                    </flux:sidebar.item>
-                    <flux:sidebar.item icon="user" :href="route('users')" :current="request()->routeIs('users')" wire:navigate>
-                        {{ __('Utilisateurs') }}
-                    </flux:sidebar.item>
-                    <flux:sidebar.item icon="document-text" :href="route('owners')" :current="request()->routeIs('owners')" wire:navigate>
-                        {{ __('Signataires') }}
-                    </flux:sidebar.item>
-                    <flux:sidebar.item icon="document-text" :href="route('gaps')" :current="request()->routeIs('gaps')" wire:navigate>
-                        {{ __('Gestion des A/P.S') }}
-                    </flux:sidebar.item>
-                    <flux:sidebar.item icon="document-text" :href="route('subscriptions')" :current="request()->routeIs('subscriptions')" wire:navigate>
-                        {{ __('Gestion des Cotisations') }}
-                    </flux:sidebar.item>
+
+                    @if(in_array($role, ['admin', 'master', 'breeder']))
+                        <flux:sidebar.item icon="users" :href="route('breeders')" :current="request()->routeIs('breeders')" wire:navigate>
+                            {{ __('Éleveurs') }}
+                        </flux:sidebar.item>
+                    @endif
+
+                    @if(in_array($role, ['admin', 'master']))
+                        <flux:sidebar.item icon="user" :href="route('users')" :current="request()->routeIs('users')" wire:navigate>
+                            {{ __('Utilisateurs') }}
+                        </flux:sidebar.item>
+
+                        <flux:sidebar.item icon="document-text" :href="route('owners')" :current="request()->routeIs('owners')" wire:navigate>
+                            {{ __('Signataires') }}
+                        </flux:sidebar.item>
+
+                        <flux:sidebar.item icon="document-text" :href="route('gaps')" :current="request()->routeIs('gaps')" wire:navigate>
+                            {{ __('Gestion des A/P.S') }}
+                        </flux:sidebar.item>
+                    @endif
+
+                    @if(in_array($role, ['admin', 'master', 'financial']))
+                        <flux:sidebar.item icon="credit-card" :href="route('membership-fees')" :current="request()->routeIs('membership-fees')" wire:navigate>
+                            {{ __('Gestion des Cartes') }}
+                        </flux:sidebar.item>
+
+                        <flux:sidebar.item icon="document-text" :href="route('subscriptions')" :current="request()->routeIs('subscriptions')" wire:navigate>
+                            {{ __('Gestion des Cotisations') }}
+                        </flux:sidebar.item>
+                    @endif
                 </flux:sidebar.group>
             </flux:sidebar.nav>
 

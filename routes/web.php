@@ -12,6 +12,7 @@ Route::post('/eleveur/ajouter', [BreederRegistrationController::class, 'store'])
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::view('owners', 'owners')->name('owners');
     Route::view('subscriptions', 'subscriptions')->name('subscriptions');
+    Route::view('membership-fees', 'membership-fees')->name('membership-fees');
     Route::view('gaps', 'gaps')->name('gaps');
     Route::view('dashboard', 'dashboard')->name('dashboard');
     Route::view('breeders', 'breeders')->name('breeders');

@@ -96,6 +96,7 @@ new class extends Component
             'gender' => $this->gender,
             'marital_status' => $this->marital_status,
             'department' => $this->department,
+            'savedby' => auth()->id(),
         ]);
 
         $this->resetForm();
@@ -192,6 +193,7 @@ new class extends Component
             'gender' => $this->gender,
             'marital_status' => $this->marital_status,
             'department' => $this->department,
+            'savedby' => auth()->id(),
         ]);
 
         $this->resetForm();

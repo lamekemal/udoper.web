@@ -8,10 +8,10 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
     <meta name="description"
-        content="Formulaire public pour ajouter un éleveur au registre de l'UDOPER Atakora Donga.">
+        content="Formulaire public pour ajouter un éleveur au registre de l'UDOPER Atacora Donga.">
 
     <meta name="keywords"
-        content="UDOPER, éleveur, ajout éleveur, formulaire, Bénin, Atakora Donga">
+        content="UDOPER, éleveur, ajout éleveur, formulaire, Bénin, Atacora Donga">
 
     <meta content="Kemal Worou DARA" name="author">
 
@@ -216,7 +216,7 @@
                     <div class="col-lg-4 col-sm-6">
                         <img src="/images/logo-white.webp" class="logo-footer" alt="Logo UDOPER AD">
                         <div class="spacer-20"></div>
-                        <p>À l'UDOPER Atakora Donga, nous nous consacrons à la défense des intérêts des éleveurs et à la promotion d'un élevage familial performant. Notre structure professionnelle accompagne ses membres pour assurer un développement pastoral durable et sécurisé.</p>
+                        <p>À l'UDOPER Atacora Donga, nous nous consacrons à la défense des intérêts des éleveurs et à la promotion d'un élevage familial performant. Notre structure professionnelle accompagne ses membres pour assurer un développement pastoral durable et sécurisé.</p>
                     </div>
                     <div class="col-lg-4 col-sm-12 order-lg-1 order-sm-2">
                         <div class="row">
