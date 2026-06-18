@@ -42,7 +42,7 @@
 
                     @if(in_array($role, ['admin', 'master', 'financial']))
                         <flux:sidebar.item icon="credit-card" :href="route('membership-fees')" :current="request()->routeIs('membership-fees')" wire:navigate>
-                            {{ __('Gestion des Cartes') }}
+                            {{ __('Gestion des Frais - Cartes') }}
                         </flux:sidebar.item>
 
                         <flux:sidebar.item icon="document-text" :href="route('subscriptions')" :current="request()->routeIs('subscriptions')" wire:navigate>

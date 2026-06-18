@@ -157,7 +157,7 @@ new class extends Component
         </div>
 
         <div class="mt-4 flex justify-end gap-2">
-            <flux:button variant="secondary" wire:click="closePaymentModal">{{ __('Annuler') }}</flux:button>
+            <flux:button variant="outline" wire:click="closePaymentModal">{{ __('Annuler') }}</flux:button>
             <flux:button variant="primary" wire:click="savePayment">{{ __('Enregistrer') }}</flux:button>
         </div>
     </flux:modal>

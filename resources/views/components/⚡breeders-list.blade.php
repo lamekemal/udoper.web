@@ -263,10 +263,23 @@ new class extends Component
 ?>
 
 @php
-    $breeders = App\Models\Breeder::where('first_name', 'like', '%' . $search . '%')
-        ->orWhere('last_name', 'like', '%' . $search . '%')
-        ->orWhere('email', 'like', '%' . $search . '%')
-        ->paginate(10);
+    // Récupérer le rôle de l'utilisateur connecté
+    $role = auth()->check() ? (string) auth()->user()->role : 'user';
+
+    // Requête de base pour récupérer les éleveurs
+       if(in_array($role, ['admin', 'master']))
+            $breeders = App\Models\Breeder::where('first_name', 'like', '%' . $search . '%')
+                ->orWhere('last_name', 'like', '%' . $search . '%')
+                ->orWhere('email', 'like', '%' . $search . '%')
+                ->paginate(10);
+       elseif(in_array($role, ['breeder']))
+        {
+            $breeders = App\Models\Breeder::where('first_name', 'like', '%' . $search . '%')
+                ->orWhere('last_name', 'like', '%' . $search . '%')
+                ->orWhere('email', 'like', '%' . $search . '%')
+                ->where('savedby', auth()->id())
+                ->paginate(10);
+        }
 @endphp
 
 <div>
